@@ -6,6 +6,7 @@ Version 1: Frameworkless design
 https://stackoverflow.com/questions/39746718/mongodb-node-js-role-based-access-control-rbac
 https://www.mongodb.com/docs/manual/core/authorization/
 https://www.developerhandbook.com/blog/passportjs/passport-role-based-authorisation-authentication/
+https://stackoverflow.com/questions/53880700/how-to-create-mongodb-schema-design-while-dealing-with-single-user-account-and-m
 
 
 ## Scoring table 
