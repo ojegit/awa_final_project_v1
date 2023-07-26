@@ -2,6 +2,12 @@
 Version 1: Frameworkless design
 
 
+## References
+https://stackoverflow.com/questions/39746718/mongodb-node-js-role-based-access-control-rbac
+https://www.mongodb.com/docs/manual/core/authorization/
+https://www.developerhandbook.com/blog/passportjs/passport-role-based-authorisation-authentication/
+
+
 ## Scoring table 
 |Requirement|Points|Yes (x)/No (-)|
 |:---|:---:|:---:|
@@ -26,10 +32,33 @@ Version 1: Frameworkless design
 ## Done
 Not done:
 - use `https://highlightjs.org/` for displaying the code
-- finally: review points achieved, check for bugs and most importantly make sure the program works!
-- choice of auth token placement is important for implementation: place auth tokens to either headers where it can be accessed by the server very easily or save locally so as to be accessed UNTIL it expires or is deleted for independent verification.
-    * header: a) enables server side rendering, b) and usage of template engines and c) client is always known therefore rendering can be directly applied to a specific group 
-    * local storage (most likely jwt): all has to be done client side: a) the code for all groups is always accessible b) template engines can't be used (not that they'd be used anyway if React, Angular, Vue etc. is used)
+- front-end (`client`):
+    - pages:
+        - landing (?)
+        - login
+        - logoff
+        - register
+        - admin dashboard
+        - user settings
+        - code snippets/commentary etc. 
+    - functionality:
+        - search bar 
+        - navbar
+        - comments: add/edit/delete
+        - code snippets: add/edit/delete
+        - up/downvote
+        - user image upload
+        - RBAC/Roles/Responsibilities handling 
+    - UI design: Materialize, React, Template engine, CSS (?)
+- back-end (`server`):
+    - user input verification
+        * login: username(email), password)
+        * register: first name, last name, email, password, nick)
+        * input code blocks
+        * routes (has to do with capturing different range of addresses and case sensitivity; very different approach to the above, but still may be relevant)
+    - choice of authentication method:
+        * header: a) enables server side rendering, b) and usage of template engines and c) client is always known therefore rendering can be directly applied to a specific group 
+        * local storage (most likely jwt): all has to be done client side: a) the code for all groups is always accessible b) template engines can't be used (not that they'd be used anyway if React, Angular, Vue etc. is used)
 
 Done: 
 - DB Schemas
