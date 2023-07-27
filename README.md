@@ -90,7 +90,7 @@ Markdown</br>
 <h3><strong>Done:</strong></h3>
 
 - Skeleton of front-end: navigation should be completed
-- Mongoose schemas: everything that is to be stored to DB should now have a schema including User, CodeSnippet, Comment, Image, what is NOT yet finished is the Roles!
+- Mongoose schemas: everything that is to be stored to DB should now have a schema including User, CodeSnippet, Comment, Image, what is NOT yet finished is the Roles that connects to Users!
 - PUG files
 - DB Schemas
 - Routes
