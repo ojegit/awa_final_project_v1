@@ -12,4 +12,4 @@ let schema = new Schema({
     buffer: Buffer
 });
 
-module.exports = mongoose.model("Images", schema);
+module.exports = mongoose.model("images", schema);

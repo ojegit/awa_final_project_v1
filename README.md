@@ -88,8 +88,9 @@ Markdown</br>
         * local storage (most likely jwt): all has to be done client side: a) the code for all groups is always accessible b) template engines can't be used (not that they'd be used anyway if React, Angular, Vue etc. is used)
 
 <h3><strong>Done:</strong></h3>
-- Skeleton of front-end
-- Mongoose schemas
+
+- Skeleton of front-end: navigation should be completed
+- Mongoose schemas: everything that is to be stored to DB should now have a schema including User, CodeSnippet, Comment, Image, what is NOT yet finished is the Roles!
 - PUG files
 - DB Schemas
 - Routes
@@ -97,13 +98,16 @@ Markdown</br>
 
 ## Changes:
 <h3>07/28/2023</h3>
-- began working on connecting the front to back end
+
+- began working on connecting the front end to back end
 - began experimenting with data and db access
 <h3>07/27/2023</h3>
-- build rudimentary top navbar for main view, and side bars for admin and user views
-- build pug templates for each page
+
+- built rudimentary top navbar for main view, and side bars for admin and user views
+- built pug templates for each page
 - designed front end and routes
 - finished mongoose schemas
 <h3>07/17/2023</h3>
+
 - init
 
