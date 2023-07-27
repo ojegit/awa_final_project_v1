@@ -97,10 +97,12 @@ Markdown</br>
 ## Changes:
 <h3>07/28/2023</h3>
 - began working on connecting the front to back end
+- began experimenting with data and db access
 <h3>07/27/2023</h3>
 - build rudimentary top navbar for main view, and side bars for admin and user views
 - build pug templates for each page
 - designed front end and routes
+- finished mongoose schemas
 <h3>07/17/2023</h3>
 - init
 
