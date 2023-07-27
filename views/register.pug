@@ -1,0 +1,11 @@
+extends main_layout
+block content
+    h1 Register
+    form(action="/register", method="POST")
+        label(for="email") Email:
+        input(type="text", id="email", name="email")
+        label(for="password") Password:
+        input(type="password", id="password", name="password")
+        label(for="user-avatar") Avatar image:
+        input(type="file",id="user-avatar" accept=".png, .jpg, .jpeg" name="user-avatar")
+        button(type="submit") Register

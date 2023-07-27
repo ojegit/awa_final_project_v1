@@ -9,13 +9,18 @@ Misc</br>
 [RBAC 2](https://stackoverflow.com/questions/53880700/how-to-create-mongodb-schema-design-while-dealing-with-single-user-account-and-m)</br>
 [Mongo DB authorization](https://www.mongodb.com/docs/manual/core/authorization/)</br>
 [PassportJS](https://www.developerhandbook.com/blog/passportjs/passport-role-based-authorisation-authentication/)</br>
+https://css-tricks.com/handling-user-permissions-in-javascript/
 
 Pure JS</br>
 [Pagination](https://www.w3schools.com/howto/howto_css_pagination.asp)</br>
 [Search menu](https://www.w3schools.com/howto/howto_js_search_menu.asp)</br>
+https://stackoverflow.com/questions/28820293/how-does-twitter-implement-its-tweet-box
 
 PUG</br>
 [Bootstrap template](https://riemke.dev/blog/bootstrap-with-pug-template/)</br>
+https://stackoverflow.com/questions/53638683/pug-submenu-toggling
+https://www.landingfolio.com/library/home-sidebar/pug
+https://stackoverflow.com/questions/59773656/pug-rendering-templates-of-view-subfolders-in-node-js-express
 
 Materialize</br>
 [Navbar 1](https://ampersandtutorials.com/materialize-css/navbar-in-materialize-css/)</br>
@@ -24,7 +29,8 @@ Materialize</br>
 [Pagination](https://materializecss.com/pagination.html#!)</br>
 [Text inputs](https://materializecss.com/text-inputs.html)</br>
 [Tabs](https://materializecss.com/tabs.html)</br>
-[Table with pagination](https://codepen.io/juan1992/pen/pwdoad)
+[Table with pagination](https://codepen.io/juan1992/pen/pwdoad)</br>
+https://shapeyourpath.com/materialize/materialize-css-media-tutorial#
 
 Markdown</br>
 [Basics](https://www.markdownguide.org/basic-syntax/)
@@ -82,15 +88,19 @@ Markdown</br>
         * local storage (most likely jwt): all has to be done client side: a) the code for all groups is always accessible b) template engines can't be used (not that they'd be used anyway if React, Angular, Vue etc. is used)
 
 <h3><strong>Done:</strong></h3>
-
+- Skeleton of front-end
+- PUG files
 - DB Schemas
 - Routes
 - UI design
 
 ## Changes:
-<h3>07/26/2023</h3>
-
-- planning
-07/17/2023
+<h3>07/28/2023</h3>
+- began working on connecting the front to back end
+<h3>07/27/2023</h3>
+- build rudimentary top navbar for main view, and side bars for admin and user views
+- build pug templates for each page
+- designed front end and routes
+<h3>07/17/2023</h3>
 - init
 

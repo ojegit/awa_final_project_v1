@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        div(id="stylesheets")
+            link(rel="stylesheet" href="/resources/css/main.css")
+            
+            block stylesheets
+
+
+        div(id="script-head")
+            block script_head
+
+        div(id="main-navbar")
+            include main_navbar.pug
+    body
+        div(id="main-sidebar")
+            block sidebar
+
+        div(id="main-content")
+            block content
+
+        div(id="script-body")
+            script(src="./resources/js/main.js")
+
+            block script_body
+
+            

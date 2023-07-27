@@ -1,0 +1,47 @@
+/*
+https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp
+*/
+/* The side navigation menu */
+#admin-sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  #admin-sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  #admin-sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  #admin-sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div#admin-content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div#admin-content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }

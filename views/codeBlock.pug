@@ -1,0 +1,10 @@
+
+extends main_layout
+
+block content
+
+div.container
+    h2 Example pages
+    ul.navlist
+      each item in items
+        li: a(href=item.route)=item.name
