@@ -89,6 +89,7 @@ Markdown</br>
 
 <h3><strong>Done:</strong></h3>
 - Skeleton of front-end
+- Mongoose schemas
 - PUG files
 - DB Schemas
 - Routes
