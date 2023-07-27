@@ -57,7 +57,7 @@ Markdown</br>
 
 ## Done
 <h3><strong>Not done:</strong></h3>
-
+- user group based authenticator middleware
 - use `https://highlightjs.org/` for displaying the code
 - front-end (`client`):
     - pages:
@@ -90,9 +90,8 @@ Markdown</br>
 <h3><strong>Done:</strong></h3>
 
 - Skeleton of front-end: navigation should be completed
-- Mongoose schemas: everything that is to be stored to DB should now have a schema including User, CodeSnippet, Comment, Image, what is NOT yet finished is the Roles that connects to Users!
+- Mongoose schemas are mostly done: everything that is to be stored to DB should now have a schema including User, CodeSnippet, Comment, Image, what is NOT yet finished is the Roles that connects to Users!
 - PUG files
-- DB Schemas
 - Routes
 - UI design
 
