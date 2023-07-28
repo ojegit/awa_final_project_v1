@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let commentSchema = new Schema ({
-    user: Schema.Types.ObjectId,
-    firstName: {type: String, default: '', required:true},
+/*
+-write the actual comment at 'content' field
+*/
 
+let commentSchema = new Schema ({
+    user: {type: Schema.Types.ObjectId,  required:true , ref: 'User'},
+    content: {type: String, default: '', required:true},
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }
 });

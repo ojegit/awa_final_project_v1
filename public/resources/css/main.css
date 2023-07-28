@@ -1,5 +1,6 @@
 /*
 https://www.w3schools.com/howto/howto_js_topnav.asp
+https://www.w3schools.com/howto/howto_css_searchbar.asp
 */
 
 /* Add a black background color to the top navigation */
@@ -34,4 +35,13 @@ https://www.w3schools.com/howto/howto_js_topnav.asp
 #main-navbar a:hover:not(.active) {
     background-color: #555;
     color: white;
+}
+
+#main-navbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
 }

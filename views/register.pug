@@ -2,10 +2,16 @@ extends main_layout
 block content
     h1 Register
     form(action="/register", method="POST")
+        label(for="firstName") First name:
+        input(type="name", id="firstName", name="firstName")
+        label(for="lastName") Last name:
+        input(type="name", id="lastName", name="lastName")
         label(for="email") Email:
         input(type="text", id="email", name="email")
         label(for="password") Password:
         input(type="password", id="password", name="password")
+        label(for="nickName") Nick name:
+        input(type="name", id="nickName", name="nickName")
         label(for="user-avatar") Avatar image:
         input(type="file",id="user-avatar" accept=".png, .jpg, .jpeg" name="user-avatar")
         button(type="submit") Register

@@ -5,6 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var mongoose = require("mongoose");
 var logger = require('morgan');
+const Role = require("./models/Role");
 
 //import routes
 var apiRouter = require('./routes/api');
