@@ -14,13 +14,19 @@ https://css-tricks.com/handling-user-permissions-in-javascript/
 Pure JS</br>
 [Pagination](https://www.w3schools.com/howto/howto_css_pagination.asp)</br>
 [Search menu](https://www.w3schools.com/howto/howto_js_search_menu.asp)</br>
-https://stackoverflow.com/questions/28820293/how-does-twitter-implement-its-tweet-box
+https://stackoverflow.com/questions/28820293/how-does-twitter-implement-its-tweet-box</br>
+[RBAC 1](https://soshace.com/implementing-role-based-access-control-in-a-node-js-application/)</br>
+[RBAC 2](https://stackoverflow.com/questions/39746718/mongodb-node-js-role-based-access-control-rbac?rq=4)</br>
+
+Mongoose</br>
+https://masteringjs.io/tutorials/mongoose/create</br>
+https://stackoverflow.com/questions/18551519/error-handling-under-mongoose-save</br>
 
 PUG</br>
 [Bootstrap template](https://riemke.dev/blog/bootstrap-with-pug-template/)</br>
-https://stackoverflow.com/questions/53638683/pug-submenu-toggling
-https://www.landingfolio.com/library/home-sidebar/pug
-https://stackoverflow.com/questions/59773656/pug-rendering-templates-of-view-subfolders-in-node-js-express
+https://stackoverflow.com/questions/53638683/pug-submenu-toggling</br>
+https://www.landingfolio.com/library/home-sidebar/pug</br>
+https://stackoverflow.com/questions/59773656/pug-rendering-templates-of-view-subfolders-in-node-js-express</br>
 
 Materialize</br>
 [Navbar 1](https://ampersandtutorials.com/materialize-css/navbar-in-materialize-css/)</br>
@@ -90,7 +96,8 @@ Markdown</br>
 <h3><strong>Done:</strong></h3>
 
 - Skeleton of front-end: navigation should be completed
-- Mongoose schemas are mostly done: everything that is to be stored to DB should now have a schema including User, CodeSnippet, Comment, Image, what is NOT yet finished is the Roles that connects to Users!
+- Mongoose schemas are mostly done: everything that is to be stored to DB should now have a schema including User, CodeSnippet, Comment, Image, what is NOT yet finished is the Roles that connects to Users! (DONE)
+- Registation input validation completed
 - PUG files
 - Routes
 - UI design
@@ -98,6 +105,9 @@ Markdown</br>
 ## Changes:
 <h3>07/28/2023</h3>
 
+- MongoDB 
+- MongoDB schemas completed
+- user register and input verification working
 - began working on connecting the front end to back end
 - began experimenting with data and db access
 <h3>07/27/2023</h3>
