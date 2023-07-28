@@ -105,7 +105,7 @@ Markdown</br>
 ## Changes:
 <h3>07/28/2023</h3>
 
-- MongoDB 
+- MongoDB access working (tested with Postman)
 - MongoDB schemas completed
 - user register and input verification working
 - began working on connecting the front end to back end
