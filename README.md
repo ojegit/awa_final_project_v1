@@ -63,6 +63,8 @@ Markdown</br>
 
 ## Done
 <h3><strong>Not done:</strong></h3>
+
+- responsive UI (mandatory)
 - user group based authenticator middleware
 - use `https://highlightjs.org/` for displaying the code
 - front-end (`client`):
@@ -104,7 +106,7 @@ Markdown</br>
 
 ## Changes:
 <h3>07/28/2023</h3>
-
+- added search bar template (no functionality yet!)
 - MongoDB access working (tested with Postman)
 - MongoDB schemas completed
 - user register and input verification working
