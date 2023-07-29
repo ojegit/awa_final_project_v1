@@ -4,8 +4,26 @@ const bcrypt = require("bcryptjs");
 const {body,validationResult} = require("express-validator");
 const User = require("../models/User");
 const Role = require("../models/Role");
+const CodeSnippet = require("../models/CodeSnippet");
+const jwt = require("jsonwebtoken");
+const multer = require("multer");
+const tokenValidator = require("../auth/validateToken.js");
+const storage = multer.memoryStorage();
+const upload = multer({storage})
 
+// token expiration time
+let tokenExpirationTimeInSecs = 20*60;
+//
 
+//CORS won't work without the following:
+//Source: https://enable-cors.org/server_expressjs.html
+/*
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+*/
 
 //main landing page
 router.get('/', (req,res,next)=>{
@@ -16,8 +34,11 @@ router.get('/', (req,res,next)=>{
 //
 
 //search
-router.post('/search/:id', (req,res,next)=>{
-    var id = req.params.id;
+router.post('/search/:query', (req,res,next)=>{
+    /*
+    returns ALL codeBlocks with the given query
+    */
+    var query = req.params.query;
     console.log("POST: /search/"+íd);
     res.status(200);
 });
@@ -31,11 +52,84 @@ router.get('/login', (req,res,next)=>{
     res.render('login.pug',{});
 });
 
-router.post('/login', (req,res,next)=>{
-    console.log("POST: /login")
-    res.status(200);
-});
+router.post('/login', 
+
+  //validate email
+  body("email") 
+  .isLength({min: 3}).withMessage("Email address must have at least 3 letters")
+  .isEmail().withMessage("Not a valid email address")
+  .escape(),
+
+   //validate password
+  body("password")
+  .isLength({min: 8}).withMessage("Password must have at least 8 letters")
+  .not().isLowercase().withMessage("Password must have at least 1 lower case letter")
+  .not().isUppercase().withMessage("Password must have at least 1 upper case letter")
+  .not().isNumeric().withMessage("Password must have at least 1 number")
+  .not().isAlpha().withMessage("Password must have at least 1 alphanumeric character")
+  .withMessage("Password is not strong enough"),
+  //
+  upload.none(),
+  (req,res,next)=>{
+
+      console.log("POST: /login");
+      User.findOne({email: req.body.email})
+      .then((user) => {
+
+        //if user exists
+        if(!user) {
+            return res.status(403).json({message: "Login failed. User not found."});
+        } else {
+            bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
+            if(err) throw err;
+
+            //if password matches!
+            if(isMatch) {
+                console.log("Login by '"+req.body.email+"' success!");
+    
+                const jwtPayload = {
+                    //id: user._id,
+                    email: user.email
+                }
+    
+                jwt.sign(jwtPayload, process.env.SECRET, { expiresIn: tokenExpirationTimeInSecs},
+                (err, token) => {
+                    //Add token to req.headers
+                    //AFAIK this part was missing in the original code: the token is never added to the headers therefore 'req.headers["authorization"]' is undefined! 
+                    res.cookie("token", token, {maxAge: tokenExpirationTimeInSecs*1000}); //https://www.sohamkamani.com/nodejs/jwt-authentication/#google_vignette
+                    //Response
+                    res.status(200).json({success: true, token});
+                }
+                
+                );
+
+            //wrong password
+            } else {
+              return res.status(403).json({message: "Invalid credentials"});
+            }
+            })
+        }
+    
+        })
+        .catch((err)=>{
+          console.log(err);
+        });
+
+
+  });
 //
+
+
+//logout
+/*
+router.get('/logout'), (req,res,next)=>{
+  console.log("POST: /logout");
+  console.log( req.cookies.token);
+  res.status(200);
+  res.cookie('token', req.cookies.token, { maxAge: 0 });
+  //res.status(200).redirect("/");
+}
+*/
 
 //register
 /*
@@ -139,32 +233,80 @@ router.post('/register',
 
 //user
 //landing page
-router.get('/user/:id/', (req,res,next)=>{
-    var id = req.params.id;
-    console.log("GET: /user/"+id);
+router.get('/user/', tokenValidator.validatedAccess(1).validate, (req,res,next)=>{
+    console.log("GET: /user/");
     res.status(200);
     res.render('user_index.pug',{});
 });
 
-//add new code block
-router.get('/user/:id/add_codeblock', (req,res,next)=>{
-    var id = req.params.id;
-    console.log("GET: /user/"+id+"/add_codeblock");
+//code block submit page
+router.get('/user/add_codeblock', tokenValidator.validatedAccess(1).validate, (req,res,next)=>{
+    console.log("GET: /user/add_codeblock");
     res.status(200);
     res.render('user_add_codeblock.pug',{});
 });
 
-//add new code block
-router.get('/user/:id/list_codeblocks', (req,res,next)=>{
-    var id = req.params.id;
-    console.log("GET: /user/"+id+"/list_codeblocks");
+//add code block 
+router.post('/user/add_codeblock', tokenValidator.validatedAccess(1).validate, async (req,res,next)=>{
+  console.log("POST: /user/add_codeblock");
+  /*
+    user_id: {type: Schema.Types.ObjectId, required:true, ref: 'User'},
+	comment_id: [{type: Schema.Types.ObjectId, required:true, ref: 'Comment'}],
+    content: {type: String, required:true},
+    positiveVotes: {type: Number},
+    negativeVotes: {type: Number},
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now }
+  */
+
+    //find user id
+    const token = req.cookies.token ? req.cookies.token : null;
+    const userEmail = JSON.parse(atob(token.split('.')[1]))["email"];
+
+    let user = null;
+    try {
+      user = (await User.findOne({email: userEmail}));
+      /*
+      .then((user) => {console.log("Found user: "+user)})
+      .catch((err)=>{console.log("Error fetching user: "+err)});
+      */
+    } catch(err) {
+      console.log("User not found: "+err);
+    }
+
+    console.log("User found: "+user["_id"]);
+
+    if(user) {
+      CodeSnippet.create(
+      {
+        user_id: user["_id"],
+        title: req.body.title,
+        content: req.body.code,
+      })
+      .then(()=>{ 
+        console.log("Created new code for user '"+userEmail+"'");
+        //return res.status(200).redirect("/login");
+        return res.status(200).json({response: "ok"});
+      })
+      .catch((err)=>{ 
+        res.status(401).json({response: "Error at POST /user/add_codeblock: " +err});
+      });
+
+      
+    } else {
+      res.status(401).send({response: "User not found"});
+    }
+});
+
+//list code blocks
+router.get('/user/list_codeblocks', tokenValidator.validatedAccess(1).validate, (req,res,next)=>{
+    console.log("GET: /user/list_codeblocks");
     res.status(200);
     res.render('user_list_codeblocks.pug',{});
 });
 
 //delete user
-router.delete('/user/:id', (req,res,next)=>{
-    var id = req.params.id;
+router.delete('/user/', tokenValidator.validatedAccess(1).validate, (req,res,next)=>{
     console.log("DELETE: /user/"+id);
     res.status(200);
 });
@@ -172,31 +314,32 @@ router.delete('/user/:id', (req,res,next)=>{
 
 //admin page
 //landing page
-router.get('/admin/', (req,res,next)=>{
+router.get('/admin/', tokenValidator.validatedAccess(3).validate, (req,res,next)=>{
     console.log("GET: /admin")
     res.status(200);
     res.render('admin_index.pug',{});
 });
 
 //info
-router.get('/admin/info', (req,res,next)=>{
+router.get('/admin/info', tokenValidator.validatedAccess(3).validate, (req,res,next)=>{
     console.log("GET: /admin/info")
     res.status(200);
     res.render('admin_info.pug',{});
 });
 
 //statistics
-router.get('/admin/statistics', (req,res,next)=>{
+router.get('/admin/statistics', tokenValidator.validatedAccess(3).validate, (req,res,next)=>{
     console.log("GET: /admin/statistics")
     res.status(200);
     res.render('admin_statistics.pug',{});
 });
 
 //list users
-router.get('/admin/list_users', (req,res,next)=>{
-    console.log("GET: /admin/users");
-    res.status(200);
-    res.render('admin_list_users.pug',{});
+router.get('/admin/list_users', tokenValidator.validatedAccess(3).validate, (req,res,next)=>{
+    console.log("GET: /admin/list_users");
+    User.find({})
+    .then((users)=>{res.status(200).render("admin_list_users.pug", {users})})
+    .catch((err)=>{if(err) return next(err);});
 });
 //
 

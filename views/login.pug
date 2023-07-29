@@ -1,3 +1,12 @@
 extends main_layout
 block content
-  p Login page
+    h1 Login
+    form(action="", id="login-form")
+        label(for="email") Email:
+        input(type="text", id="email", name="email")
+        label(for="password") Password:
+        input(type="password", id="password", name="password")
+        button(type="submit") Login
+
+block script_body
+  script(type="text/javascript" src="/resources/js/login.js")

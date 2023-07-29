@@ -1,0 +1,18 @@
+extends user_layout
+block content
+    div(id="user-content")
+        h1 Add new codeblock
+        form(action="" id="add-codeblock-form")
+            div
+                label(for="title") Title:
+            div
+                input(type="text" id="user-add-title" name="title")
+            div
+                label(for="code") My code:
+            div
+                textarea(type="text" rows="5" cols="60" name="code" id="user-add-code") 
+            div
+                button(type="submit" id="submit-add-codeblock") Submit
+
+block script_body
+  script(type="text/javascript" src="/resources/js/add_codeblock.js")

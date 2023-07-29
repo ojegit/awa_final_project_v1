@@ -2,3 +2,29 @@ extends admin_layout
 block content
     div(id="admin-content")
         p Admin list users
+        table
+            tr 
+                th #
+                th ID
+                th Email
+                th Password
+                th Role
+                th Created at 
+                th Updated at
+                th
+            each user, index in users 
+                tr
+                    td= index 
+                    td= user["id"]
+                    td= user["email"]
+                    td= user["password"]
+                    td= user["role_id"]
+                    td= user["created_at"]
+                    td= user["updated_at"]
+                    td
+                        div
+                            button(class="btn-edit-user" id="btn-edit-user-"+user["id"] onclick="") Edit
+                        div
+                            button(class="btn-save-user" id="btn-save-user-"+user["id"] onclick="") Save
+                        div    
+                            button(class="btn-delete-user" id="btn-delete-user-"+user["id"] onclick="") Delete

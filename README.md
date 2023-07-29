@@ -17,10 +17,14 @@ Pure JS</br>
 https://stackoverflow.com/questions/28820293/how-does-twitter-implement-its-tweet-box</br>
 [RBAC 1](https://soshace.com/implementing-role-based-access-control-in-a-node-js-application/)</br>
 [RBAC 2](https://stackoverflow.com/questions/39746718/mongodb-node-js-role-based-access-control-rbac?rq=4)</br>
+[JWT as cookie](https://www.sohamkamani.com/nodejs/jwt-authentication/#google_vignette?utm_content=cmp-true)</br>
+[Editable tables](https://www.javatpoint.com/javascript-editable-table)</br>
+https://stackoverflow.com/questions/44657829/css-file-blocked-mime-type-mismatch-x-content-type-options-nosniff</br>
 
 Mongoose</br>
 https://masteringjs.io/tutorials/mongoose/create</br>
 https://stackoverflow.com/questions/18551519/error-handling-under-mongoose-save</br>
+https://stackoverflow.com/questions/38893178what-is-the-best-way-to-implement-roles-and-permission-in-express-rest-api</br>
 
 PUG</br>
 [Bootstrap template](https://riemke.dev/blog/bootstrap-with-pug-template/)</br>
@@ -97,6 +101,9 @@ Markdown</br>
 
 <h3><strong>Done:</strong></h3>
 
+- admin account 
+- adding code from logged in user
+- authentication
 - Skeleton of front-end: navigation should be completed
 - Mongoose schemas are mostly done: everything that is to be stored to DB should now have a schema including User, CodeSnippet, Comment, Image, what is NOT yet finished is the Roles that connects to Users! (DONE)
 - Registation input validation completed
@@ -105,6 +112,13 @@ Markdown</br>
 - UI design
 
 ## Changes:
+
+<h3>07/29/2023</h3>
+
+- added capability for admin to list all users (TBD: edit features)
+- adding code blocks from an authenticated user works
+- authentication works for user groups, permissions TBA
+
 <h3>07/28/2023</h3>
 - added search bar template (no functionality yet!)
 - MongoDB access working (tested with Postman)
