@@ -1,7 +1,7 @@
 extends main_layout
 block content
     h1 Login
-    form(action="", id="login-form")
+    form(action="", id="login-form" onsubmit="return false")
         label(for="email") Email:
         input(type="text", id="email", name="email")
         label(for="password") Password:

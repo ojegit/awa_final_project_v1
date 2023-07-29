@@ -1,7 +1,7 @@
 extends main_layout
 block content
     h1 Register
-    form(action="/register", method="POST")
+    form(action="" method="" onsubmit="return false")
         label(for="firstName") First name:
         input(type="name", id="firstName", name="firstName")
         label(for="lastName") Last name:
@@ -12,6 +12,9 @@ block content
         input(type="password", id="password", name="password")
         label(for="nickName") Nick name:
         input(type="name", id="nickName", name="nickName")
-        label(for="user-avatar") Avatar image:
-        input(type="file",id="user-avatar" accept=".png, .jpg, .jpeg" name="user-avatar")
-        button(type="submit") Register
+        label(for="userAvatar") Avatar image:
+        input(type="file",id="userAvatar" accept=".png, .jpg, .jpeg" name="userAvatar")
+        button(type="submit" id="submitRegister") Register
+
+block script_head
+    script(type="text/javascript" src="/resources/js/register.js")

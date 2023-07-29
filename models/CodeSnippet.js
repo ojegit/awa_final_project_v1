@@ -8,7 +8,6 @@ const Schema = mongoose.Schema;
 
 let codesSchema = new Schema ({
     user_id: {type: Schema.Types.ObjectId, required:true, ref: 'User'},
-	comment_id: [{type: Schema.Types.ObjectId, required:true, ref: 'Comment'}],
     title: {type: String, required:true},
     content: {type: String, required:true},
     positiveVotes: {type: Number},

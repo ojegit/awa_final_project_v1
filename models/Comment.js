@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 */
 
 let commentSchema = new Schema ({
+    codeSnippet_id: {type: Schema.Types.ObjectId, required:true, ref: 'CodeSnippet'}, 
     user: {type: Schema.Types.ObjectId,  required:true , ref: 'User'},
     content: {type: String, default: '', required:true},
     created_at: { type: Date, default: Date.now },

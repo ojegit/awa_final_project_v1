@@ -132,9 +132,6 @@ router.get('/logout'), (req,res,next)=>{
 */
 
 //register
-/*
-
-*/
 router.get('/register', (req,res,next)=>{
     console.log("GET: /register")
     res.status(200);
@@ -142,6 +139,9 @@ router.get('/register', (req,res,next)=>{
 });
 
 router.post('/register',
+  //multer middleware
+  upload.single('images'),
+
   //validate first name
   body("firstName") 
   .isLength({min: 2}).withMessage("First name must have at least 2 letters")
@@ -172,6 +172,19 @@ router.post('/register',
   .withMessage("Password is not strong enough"),
   async (req, res, next) => {
     console.log("POST: /register");
+
+    //user avatar
+    const images = req.file;
+    let new_avatar = {};
+    if(images) {
+      new_avatar = {
+        name: images["originalname"],
+        encoding: images["encoding"],
+        mimetype: images["mimetype"],
+        buffer: images["buffer"]
+      };
+    }
+    //
 
     //
     //find basic user id
@@ -211,7 +224,7 @@ router.post('/register',
                 email: req.body.email,
                 password: hash,
                 role_id: roleId,
-
+                avatar: new_avatar
               })
               .then(()=>{ return res.status(200).redirect("/login");})
               .catch((err)=>{ 
@@ -276,6 +289,7 @@ router.post('/user/add_codeblock', tokenValidator.validatedAccess(1).validate, a
 
     console.log("User found: "+user["_id"]);
 
+    //add net code snippet
     if(user) {
       CodeSnippet.create(
       {
@@ -299,10 +313,34 @@ router.post('/user/add_codeblock', tokenValidator.validatedAccess(1).validate, a
 });
 
 //list code blocks
-router.get('/user/list_codeblocks', tokenValidator.validatedAccess(1).validate, (req,res,next)=>{
+router.get('/user/list_codeblocks', tokenValidator.validatedAccess(1).validate, async (req,res,next)=>{
     console.log("GET: /user/list_codeblocks");
-    res.status(200);
-    res.render('user_list_codeblocks.pug',{});
+    
+    //find user id
+    const token = req.cookies.token ? req.cookies.token : null;
+    const userEmail = JSON.parse(atob(token.split('.')[1]))["email"];
+
+    let user = null;
+    try {
+      user = (await User.findOne({email: userEmail}));
+      /*
+      .then((user) => {console.log("Found user: "+user)})
+      .catch((err)=>{console.log("Error fetching user: "+err)});
+      */
+    } catch(err) {
+      console.log("User not found: "+err);
+    }
+
+    console.log("User found: "+user["_id"]);
+
+    //get all codeSnippets posted by the user
+    if(user) {
+      CodeSnippet.find({user_id: user["_id"]})
+      .then((codeSnippets)=>{res.status(200).render("user_list_codeblocks.pug", {codeSnippets})})
+      .catch((err)=>{if(err) return next(err);});
+    } else {
+      res.status(401).send({response: "User not found"});
+    }
 });
 
 //delete user
@@ -310,6 +348,101 @@ router.delete('/user/', tokenValidator.validatedAccess(1).validate, (req,res,nex
     console.log("DELETE: /user/"+id);
     res.status(200);
 });
+
+
+//user avatar image
+router.get('/user/avatar', tokenValidator.validatedAccess(1).validate, async (req,res,next)=> {
+    console.log("GET: /user/avatar");
+
+    /*
+    avatar: {
+        name: String,
+        encoding: String,
+        mimetype: String,
+        buffer: Buffer,
+        created_at: { type: Date, default: Date.now },
+        updated_at: { type: Date, default: Date.now }
+    },
+    */
+      
+    //find user id
+    const token = req.cookies.token ? req.cookies.token : null;
+    const userEmail = JSON.parse(atob(token.split('.')[1]))["email"];
+
+    let user = null;
+    try {
+      user = (await User.findOne({email: userEmail}));
+    } catch(err) {
+      console.log("User not found: "+err);
+    }
+
+    const avatar = user["avatar"];
+    if(avatar) {
+        const img = Buffer.from(avatar["buffer"],'base64').toString('base64');
+        res.status(200);
+        res.set({"content-type":avatar["mimetype"], "content-disposition":"inline"});
+        res.send({"response": Buffer.from(avatar["buffer"],'base64')});
+    } else {
+       res.status(401).send({response: "Avatar image not found"});
+    }
+
+});
+
+//post user avatar image
+router.post('/user/avatar', 
+  tokenValidator.validatedAccess(1).validate, 
+  upload.array('images', 1), 
+  async (req,res,next)=> {
+
+  console.log("POST: /user/avatar");
+
+
+  let user = null;
+  try {
+    user = (await User.findOne({email: userEmail}));
+  } catch(err) {
+    console.log("User not found: "+err);
+  }
+
+    /*
+    avatar: {
+        name: String,
+        encoding: String,
+        mimetype: String,
+        buffer: Buffer,
+        created_at: { type: Date, default: Date.now },
+        updated_at: { type: Date, default: Date.now }
+    },
+    */
+
+  if(req.files.length > 0) {
+      const name = req.files[i]["originalname"];
+      const encoding = req.files[i]["encoding"];
+      const mimetype = req.files[i]["mimetype"];
+      const buffer = req.files[i]["buffer"];
+      images.push({_id: _id, name: name, encoding: encoding, mimetype: mimetype, buffer: buffer});
+
+    //return res.send(images);
+    
+    Images.insertMany(images) //https://www.geeksforgeeks.org/mongoose-insertmany-function/
+    .then(function(){
+      console.log("api.js /images/ POST success: "+JSON.stringify(images));  // Success
+      //return res.send(req.body);
+      return res.send(images);
+    }).catch(function(error){
+       return res.status(403).send("api.js /images/ POST error: "+error);
+    });
+    
+    //how to add the id's to the submit WITHOUT another call to the db? Generate id's HERE and send them back in the response!
+
+  } else {
+    return res.status(403).send("api.js /images/ POST error: No images to insert!");
+  }
+
+
+
+});
+
 //
 
 //admin page

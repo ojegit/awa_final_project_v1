@@ -9,7 +9,9 @@ Misc</br>
 [RBAC 2](https://stackoverflow.com/questions/53880700/how-to-create-mongodb-schema-design-while-dealing-with-single-user-account-and-m)</br>
 [Mongo DB authorization](https://www.mongodb.com/docs/manual/core/authorization/)</br>
 [PassportJS](https://www.developerhandbook.com/blog/passportjs/passport-role-based-authorisation-authentication/)</br>
-https://css-tricks.com/handling-user-permissions-in-javascript/
+https://css-tricks.com/handling-user-permissions-in-javascript/</br>
+https://webdesign.tutsplus.com/pagination-with-vanilla-javascript--cms-41896t</br>
+https://stackoverflow.com/questions/36096805/uploading-multiple-files-with-multer-but-from-different-fields</br>
 
 Pure JS</br>
 [Pagination](https://www.w3schools.com/howto/howto_css_pagination.asp)</br>
@@ -100,7 +102,7 @@ Markdown</br>
         * local storage (most likely jwt): all has to be done client side: a) the code for all groups is always accessible b) template engines can't be used (not that they'd be used anyway if React, Angular, Vue etc. is used)
 
 <h3><strong>Done:</strong></h3>
-
+- image upload during the register
 - admin account 
 - adding code from logged in user
 - authentication
@@ -113,6 +115,9 @@ Markdown</br>
 
 ## Changes:
 
+<h3>07/30/2023</h3>
+
+- image upload to DB working and tested
 <h3>07/29/2023</h3>
 
 - added capability for admin to list all users (TBD: edit features)

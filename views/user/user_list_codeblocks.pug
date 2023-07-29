@@ -1,4 +1,35 @@
 extends user_layout
 block content
     div(id="user-content")
-        p User list codeblocks
+        p User's code snippets
+        table
+            tr 
+                th #
+                th id
+                th title
+                th code
+                th positive votes
+                th negative votes
+                th comments
+            each codeSnippet, index in codeSnippets
+                tr(class="codesnippet")
+                    td
+                        div(class="codesnippet-number")
+                            p index 
+                    td
+                        div(class="codesnippet-id")
+                            p codeSnippet["id"]
+                    td
+                        div(class="codesnippet-title") 
+                            p codeSnippet["title"]
+                    td  
+                        div(class="codesnippet-code")
+                            p codeSnippet["code"]
+                    td
+                        div(class="codesnippet-positivevotes")
+                            p codeSnippet["positiveVotes"]
+                    td
+                        div(class="codesnippet-negativevotes")
+                            p codeSnippet["negativeVotes"]
+                    td
+                        div(class="codesnippet-comments")
