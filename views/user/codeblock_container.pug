@@ -1,0 +1,13 @@
+mixin codeblock_container(user)
+    div(class="codeblock-outer")
+        div(class="codeblock-avatar")
+            if()
+    header
+    ul
+        div(hidden)
+            li: a(href="/" id="index") Index
+        if (!loggedin)
+            li: a(href="/login.html" id="login") Login
+            li: a(href="/register.html" id="register") Register
+        else
+            button(id="logout") Logout
