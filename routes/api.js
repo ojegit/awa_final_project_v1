@@ -1140,7 +1140,9 @@ async(req,res,next)=>{
     const comment = (await Comment.findByIdAndDelete(commentId));
 
     //delete votes from comments of codeblock
-    (await Vote.deleteMany({vote_id: comment["vote_ids"]}));
+    if(comment) { //(comment["vote_ids"] !== undefined) {
+      (await Vote.deleteMany({_id: comment["vote_ids"]}));
+    }
   } catch(err) {
     console.log("Error finding commend: " +err);
     return res.status(403).json({response: "Error finding commend: " +err});
@@ -1154,7 +1156,7 @@ router.post('/codeblock/delete',
 accessValidator(1,redirectOnUnAuth),
 async(req,res,next)=>{
   console.log("POST: /codeblock/delete");
-  const codeblockId = req.body.codeblock_id;
+  const codeblockId = req.body.codesnippet_id;
   console.log("Attempting to delete codeblock_id: "+codeblockId);
 
   try {
@@ -1162,13 +1164,17 @@ async(req,res,next)=>{
     const codeBlock = (await CodeSnippet.findByIdAndDelete(codeblockId));
 
     //delete votes from codeblock
-    (await Vote.deleteMany({vote_id: codeBlock["vote_ids"]}));
+    if(codeBlock) { //(codeBlock["vote_ids"] !== undefined) {
+      (await Vote.deleteMany({_id: codeBlock["vote_ids"]}));
+    }
 
     //delete comments of codeblock
     const comment = (await Comment.findOneAndDelete({codeSnippet_id: codeblockId}));
 
     //delete votes from comments of codeblock
-    (await Vote.deleteMany({vote_id: comment["vote_ids"]}));
+    if (comment) { //if(comment["vote_ids"] !== undefined) {
+      (await Vote.deleteMany({_id: comment["vote_ids"]}));
+    }
 
   } catch(err) {
     console.log("Error finding codesnippet: " +err);

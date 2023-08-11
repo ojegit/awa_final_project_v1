@@ -1,3 +1,4 @@
+
 ## Project description
 
 [See here](https://docs.google.com/document/d/1zSfVZcnv7FUnu6VxwKLXBPZHqTIdRX1w3d9Yer_mKVU/edit)
@@ -36,9 +37,12 @@ See below and
 
 Install with <em>NPM</em> `npm install` and run `npm start`. The program will run at port <em>3000</em> and at MongoDB address <em>mongodb://localhost:27017/projektidb1</em>
 
-When the app is started user roles are created (if they don't exist) at `app.js` and old login tokens deleted. First ever user to register will receive <em>admin</em> rights.
+When the app is started user roles are created (if they don't exist) at `app.js`. The role generation is done by using the route <em>/admin/add_role</em> and this is of course unsafe option for IRL use. First ever user to register will receive <em>admin</em> rights. In addition, each time the app is started and old login tokens are deleted.
 
 Default port <em>3000</em> and db url <em></em> can be easily changed at `app.js`. JWT token expiration time is set to 20 minutes and can be adjusted at `/routes/api.js`.
+
+<h3> Viewing codes and comments </h3>
+All codes and comments can be seen in the landing page (the first view, root at '/'). The code poster's information can be seen by hovering on top of top row or green part of the codeblock. If user is logged in then the hover also shows the poster's emails and bios. Vote counts either up or down are also shown in both code and comment blocks.
 
 <h3>Registering users</h3>
 When staring the program register from the register menu. User input is checked for correctness. For example, password length should be more than 8 characters, only alphanumerics should be used and at least one capital and lowercase letter should be used. As the email is to be used as username it should be unique and of course contain the @ sign.
@@ -54,6 +58,7 @@ For the users the following features are available from their respective menu:
 - adding new codes
 - viewing their own codes
 
+
 <h3>Login and logout</h3>
 User is identified based on their unique <em>email</em> and <em>password</em>. Once user logs in a token is created in lthat expires in <em>20 minutes</em>. 
 
@@ -64,6 +69,7 @@ Users can switch between English and Finnish language versions from top navbar d
 
 <h3>Adding code blocks</h3>
 Logged in users can add new code from <em>user->add codeblock</em>
+
 
 <h3>Editing user information</h3>
 Logged in user can edit their information inputted during register from <em>user->add codeblock</em>. Only <em>admin</em> can delete a user, however.
@@ -85,22 +91,35 @@ Logged in users can vote each other's (but not their own) codes or comments. Onl
 In order to search the comments the top right corner search bar may be used. Searching does not require login.
 
 <h3> Responsiveness</h3>
-The searchbar in the top navbar will move below the links at 700px width. Sidebar menus at user and admin views will collapse into a navbar also at this width.
+The searchbar in the top navbar will move below the links at 700px width. Sidebar menus at user and admin views will collapse into a navbar also at this width. Finally, the charts at <em>admin->statistics</em> will move from a grid layout to a single column.
 
 # Database 
  ![db](./documentation/db_model.png)
 
 # UI
-| View | Image |
+
+
+## Register
+
+|  |  |
 | -- | -- |
-| Login, en | ![login_en](./documentation/ui/login_en.png)
-| Register, en | ![register_en](./documentation/ui/register_en.png)
-| Login errors, en | ![login_errors_en](./documentation/ui/login_errors_en.png)
-| Login errors, fi | ![login_errors_en](./documentation/ui/login_errors_fi.png)
-| User card, en | ![login_en](./documentation/ui/user_card_hover_en.png)
-| admin edit user, en | ![fsdf](./documentation/ui/admin_users_en.png)
+| Form | ![register_en](./documentation/ui/register_en.png)
+
+## Login 
+
+|  |  |  |
+| -- | -- | -- |
+| Form | ![login_en](./documentation/ui/login_en.png) |  |
+| Form errors | ![login_errors_en](./documentation/ui/login_errors_en.png) | ![login_errors_en](./documentation/ui/login_errors_fi.png) |
+
+## User
+
+|  |  |  |
+| -- | -- | -- |
+| Card | ![login_en](./documentation/ui/user_card_hover_en.png) | |
+| admin edit user| ![fsdf](./documentation/ui/admin_users_en.png)
 | admin statistics, en | ![admin_statistics_em](./documentation/ui/admin_statistics_en.png)
-| user add code, en | ![user_add_code_en](./documentation/ui/add_codeblock_en.png)
+| user add code | ![user_add_code_en](./documentation/ui/add_codeblock_en.png)
 
 
 # Dependencies
