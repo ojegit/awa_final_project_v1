@@ -11,11 +11,11 @@ Since names need to be chosen from the enum, therefore this DB can hold only thr
 
 let rolesSchema = new Schema ({
     name: {type: String,
-           enum: ['basic', 'supervisor','admin'], 
+           enum: ['supervisor','basic','admin'], 
            unique: true,
            required: true},
     access: {type: Number, 
-             enum: [1,2,3], 
+             enum: [0,1,3], 
              required: true},
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }

@@ -1,0 +1,46 @@
+mixin user_form(formIdentifier,route,user,sendMethod,idName,idValue,submitButtonLabel,i18nextLng)
+    div
+        form(action=route method=sendMethod id=formIdentifier class="admin-user-data-form" onsubmit="return false;")
+            input(type="hidden" value=idValue name=idName)
+            //input(type="hidden" value=new Date() name="last_login_at")
+            div
+                label(for="firstName")= t('admin.user_form.firstname', {lng: i18nextLng})+":"
+                input(type="name", id="firstName", name="firstName" value=user["firstName"])
+            div
+                label(for="lastName")= t('admin.user_form.lastname', {lng: i18nextLng})+":"
+                input(type="name", id="lastName", name="lastName" value=user["lastName"])
+            div
+                label(for="email")= t('admin.user_form.email', {lng: i18nextLng})+":"
+                input(type="text", id="email", name="email" value=user["email"])
+            div
+                label(for="password")= t('admin.user_form.new_password', {lng: i18nextLng})+":"
+                input(type="password", id="password", name="password" value="")
+            div
+                label(for="nickName")= t('admin.user_form.nickname', {lng: i18nextLng})+":"
+                input(type="name", id="nickName", name="nickName" value=user["nickName"])
+            div
+                label(for="bio")= t('admin.user_form.bio', {lng: i18nextLng})+":"
+                |<textarea type="text" id="bio" rows="5" cols="40" name="bio">#{user["bio"]}</textarea>
+            div 
+                label(for="roleName")= t('admin.user_form.role_title', {lng: i18nextLng})+":"
+                select(type="select", id="roleName", name="roleName")
+                    if user["role_name"] === 'supervisor'
+                        option(value="supervisor" selected="")= t('admin.user_form.role_supervisor', {lng: i18nextLng})
+                    else
+                        option(value="supervisor")= t('admin.user_form.role_supervisor', {lng: i18nextLng})
+                    if user["role_name"] === 'basic'
+                        option(value="basic" selected="")= t('admin.user_form.role_basic', {lng: i18nextLng})
+                    else
+                        option(value="basic")= t('admin.user_form.role_basic', {lng: i18nextLng})
+                    if user["role_name"] === 'admin'
+                        option(value="admin" selected="")= t('admin.user_form.role_admin', {lng: i18nextLng}) 
+                    else
+                        option(value="admin")= t('admin.user_form.role_admin', {lng: i18nextLng})
+            div
+                div 
+                    p= t('admin.user_form.old_avatar', {lng: i18nextLng})
+                    img(src=user["imgSrc"] width="30" height="30")
+                label(for="userAvatar")= t('admin.user_form.new_avatar', {lng: i18nextLng})+":"
+                input(type="file", class="admin-user-data-submit-file", id="userAvatar" accept=".png, .jpg, .jpeg" name="userAvatar")
+            div
+                input(type="submit" class="admin-user-data-submit" value=submitButtonLabel form=formIdentifier)

@@ -1,0 +1,20 @@
+mixin user_card(contents,loggedInGroup,i18nextLng)
+    div(class="user-card-outer")
+        div(class="user-card-email")
+            if(loggedInGroup>0)
+                p= t('user_card.username', {lng: i18nextLng})+": " +contents["email"]
+        div(class="user-card-nickname")
+            p= t('user_card.nickname', {lng: i18nextLng})+": " +contents["nickName"]
+        div(class="user-card-bio")
+            if(loggedInGroup>0)
+                p= t('user_card.bio', {lng: i18nextLng})+": "+contents["bio"]
+        div(class="user-card-avatar")
+            if(contents["imgSrc"])
+                img(src=contents["imgSrc"] class="avatar")
+            else
+                img(class="avatar")
+        div(class="user-card-time")
+            div(class="user-card-created-time")
+                p= t('user_card.created_at', {lng: i18nextLng})+": " +contents["created_at"].toLocaleString() 
+            div(class="user-card-updated-time")
+                p= t('user_card.last_login_at', {lng: i18nextLng})+": " +contents["last_login_at"].toLocaleString()

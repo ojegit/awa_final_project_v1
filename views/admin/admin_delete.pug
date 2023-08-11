@@ -1,0 +1,6 @@
+mixin admin_delete(formIdentifier,route,sendMethod,idName,idValue,submitButtonLabel,i18nextLng)
+    div
+        form(action=route method=sendMethod id=formIdentifier class="admin-user-data-form")
+            input(type="hidden" value=idValue name=idName)
+            div
+                input(type="submit" class="admin-user-data-delete-submit" value=submitButtonLabel form=formIdentifier  onclick="return confirm('"+t('admin.admin_delete.verification', {lng: i18nextLng})+"?')")

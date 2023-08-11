@@ -1,9 +1,25 @@
-div(id="main-navbar-links")
-    a(href="/" id="index") Index
-    a(href="/login" id="login") Login
-    a(href="/register" id="register") Register
-    a(href="/user" id="user") User
-    a(href="/admin" id="admin") Admin
-    a(href="#" id="logout") Logout
-div(id="main-navbar-search")
-    input(type="text" id="search" placeholder="Search..")
+mixin main_navbar(loggedInUser,loggedInGroup,i18nextLng)
+    div(id="main-navbar-links")
+        a(href="/" id="index" class="main-navbar-href")= t('main.navbar.index',{lng: i18nextLng})
+        a(href="/login" id="login" class="main-navbar-href")= t('main.navbar.login',{lng: i18nextLng})
+        if(loggedInGroup==0)
+            a(href="/register" id="register" class="main-navbar-href")= t('main.navbar.register',{lng: i18nextLng})
+        div
+            if(loggedInGroup>0)
+                a(href="/user" id="user" class="main-navbar-href")= t('main.navbar.user',{lng: i18nextLng})
+            if(loggedInGroup==3)
+                a(href="/admin" id="admin" class="main-navbar-href")= t('main.navbar.admin',{lng: i18nextLng})
+            if(loggedInGroup>0)
+                div
+                    form(action="/logout" method="POST" class="main-navbar-href")
+                        input(type="submit" id="logout" name="logoff" value="Logoff" onclick="removeToken()")
+
+    div(id="main-navbar-search")
+        form(action="/search" method="POST")
+            input(type="text" class="search" placeholder=t('main.navbar.search.placeholder',{lng: i18nextLng}) name="query")
+            input(type="submit" class="execute-search" value=t('main.navbar.search.submit',{lng: i18nextLng}))
+
+    div(id="main-navbar-locales")
+        a(href='/setLng/fi' onclick="setLocale('fi');")= t('main.navbar.lngSwitchButtonFi',{lng: i18nextLng})
+        a(href='/setLng/en' onclick="setLocale('en');")= t('main.navbar.lngSwitchButtonEn',{lng: i18nextLng})
+        

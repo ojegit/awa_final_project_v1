@@ -38,7 +38,8 @@ function initializeRegisterJS() {
         }
 
         //post data
-        const tmp = (await postUserData(formData));
+        //const tmp = (await postUserData(formData));
+        const tmp = (await postUserData2(formData)); 
 
         //empty form
         firstNameRef.value = "";
@@ -49,6 +50,45 @@ function initializeRegisterJS() {
         imageInputRef.files = null;
     });
 }
+
+async function postUserData2(formData) {
+
+    var errSendTarget = document.getElementsByClassName("register-express-validator-errors")[0];
+    errSendTarget.innerHTML = ""; //clear old errors
+
+    //clear previous errors
+    //document.getElementById("login-error").innerHTML = '';
+    
+    //grab data from the form
+    let res = null;
+    try {
+        res = (await fetch("http://localhost:3000/register", {
+            method: "POST",
+            body: formData
+        }));
+    } catch(err) {
+        console.log("Error post register: "+err);
+    }
+
+    //if the express-validator returned any errors then send them back to the login page
+    if(res.status==(422+0)) {
+        //render directly to the document
+        const evErrors = (await res.json())["errors"];
+
+        for(var i=0;i<evErrors.length; i++) {
+            const div = document.createElement("div");
+            const p = document.createElement("p");
+            p.innerHTML = "#"+(i+1)+": " +evErrors[i]["msg"];
+            div.append(p);
+            errSendTarget.append(div);
+        }
+        console.log(evErrors);
+    } else {
+        window.location.replace('/');
+    }
+}
+
+
 
 const postUserData = async function(formData) {
     await fetch("http://localhost:3000/register", {

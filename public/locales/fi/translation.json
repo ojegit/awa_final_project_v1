@@ -1,0 +1,229 @@
+{
+
+
+    "welcome": "Tervetuloa",
+    "express_validator": 
+    {
+      "login_messages":
+      {
+        "email":
+        {
+          "length":"Sähköpostiosoitteessa tulee olla vähintään 3 merkkiä",
+          "isemail":"Ei kelvollinen sähköpostiosoite"
+        },
+        "password": 
+        {
+          "length":"Salasanassa tulee olla vähintään 8 merkkiä",
+          "lowercase":"Salasanassa tulee olla vähintään 1 pieni kirjain",
+          "uppercase":"Salasanassa tulee olla vähintään 1 iso kirjain",
+          "number":"Salasanassa tulee olla vähintään 1 numero",
+          "alphanumeric":"Salasanassa tulee olla vähintään 1 alfanumeerinen merkki",
+          "strength":"Salasana ei ole tarpeeksi vahva"
+        }
+      },
+      "register_messages":
+      {
+        "firstname":
+        {
+          "islength":"Etunimessä tulee olla vähintään 2 kirjainta",
+          "isalpha":"Etunimessä tulee olla vain alfanumeerisiä merkkejä"
+        },
+        "lastname":
+        {
+          "islength":"Sukunimessä tulee olla vähintään 2 kirjainta",
+          "isalpha":"Sukunimessä tulee olla vain alfanumeerisiä merkkejä"
+        },
+        "nickname":
+        {
+          "islength":"Lempinimessä tulee olla vähintään 3 kirjainta"
+        },
+        "email":
+        {
+          "islength":"Sähköpostiosoitteessa tulee olla vähintään 3 merkkiä",
+          "isemail":"Ei kelvollinen sähköpostiosoite"
+        },
+        "password":
+        {
+          "islength":"Salasanassa tulee olla vähintään 8 merkkiä",
+          "islowercase":"Salasanassa tulee olla vähintään 1 pieni kirjain",
+          "isuppercase":"Salasanassa tulee olla vähintään 1 iso kirjain",
+          "isnumber":"Salasanassa tulee olla vähintään 1 numero",
+          "isalpha":"Salasanassa tulee olla vähintään 1 alfanumeerinen merkki",
+          "strength":"Salasana ei ole tarpeeksi vahva"
+        }
+      }
+    },
+    "edit_form":{
+      "save":"Tallenna",
+      "send":"Lähetä"
+    },
+    "vote_form":
+    {
+      "up":"Ylös",
+      "down":"Alas",
+      "vote":"Äänestä"
+    },
+    "add_comment":
+    {
+      "title":"Otsikko",
+      "comment":"Kommentti",
+      "submit":"Lähetä"
+    },
+    "main":
+    {
+      "title":"Kaikki koodit",
+      "navbar":
+      {
+        "user":"Käyttäjä",
+        "admin":"Ylläpitäjä",
+        "index": "Indeksi",
+        "login": "Kirjaudu",
+        "register": "Rekisteröidy",
+        "lngSwitchButtonFi": "fi",
+        "lngSwitchButtonEn": "en",
+        "lngSelect":"Valitse kieli",
+        "search":
+        {
+            "placeholder":"Etsi koodeja...",
+            "submit":"Etsi"
+        }
+      },
+      "codeblockContainer":
+      {
+        "poster":"Lähettäjä",
+        "no":"Nro",
+        "title":"Otsikko",
+        "votes":"Ääniä",
+        "up":"Ylös",
+        "down":"Alas",
+        "vote":"Äänestä",
+        "add_comment": "Lisää kommentti",
+        "id": "Id",
+        "delete_codeblock":"Poista koodi",
+        "delete_comment":"Poista kommentti"
+      }
+    },
+    "login":{
+      "title":"Kirjaudu",
+      "email":"Sähköposti",
+      "password":"Salasana",
+      "submit":"Kirjaudu"
+    },
+
+    "register":
+    {
+        "title":"Rekisteröityminen",
+        "firstname":"Etunimi",
+        "lastname": "Sukunimi",
+        "email":"Sähköposti",
+        "password":"Salasana",
+        "nickname": "Lempinimi",
+        "avatar_image": "Käyttäjäkuva",
+        "submit":"Rekisteröidy"
+    },
+    "user_card": {
+      "username":"Käyttäjänimi",
+      "nickname":"Lempinimi",
+      "bio":"Bio",
+      "created_at":"Tili luotu",
+      "last_login_at":"Viimeksi kirjautunut"
+    },
+    "user":
+    {
+        "list_codeblocks":
+        {
+          "title":"Käyttäjän lisäämät koodit"
+        },
+        "landing_page": "",
+        "title": "Lisää koodi",
+        "code_title":"Otsikko",
+        "choose_language":"Valitse kieli",
+        "automatic_selection":"Automaattinne",
+        "my_code":"Koodi",
+        "submit":"Lähetä",
+        "sidebar":
+        {
+            "list_codeblocks":"Listaa omat koodit",
+            "add_codeblock":"Lisää koodi",
+            "user_info":"Käyttäjätiedot"
+        },
+        "user_info":
+        {
+          "title":"Käyttäjätiedot",
+          "row_no":"Nro",
+          "edit_data":"Muokkaa tietoja",
+          "modified": "Muokattu",
+          "created_at":"Luotu",
+          "updated_at":"Päivitetty",
+          "last_login_at":"Kirjautunut"
+        },
+        "user_form": 
+        {
+            "firstname":"Etunimi",
+            "lastname": "Sukunimi",
+            "email":"Sähköposti",
+            "new_password":"Uusi salasana",
+            "nickname":"Lempinimi",
+            "bio":"Bio",
+            "role_title":"Käyttäjärooli",
+            "role_supervisor":"Katsoja",
+            "role_basic":"Perus",
+            "role_admin":"Valvoja",
+            "old_avatar":"Vanha kuva",
+            "new_avatar":"Uusi kuva",
+            "submit":"Lähetä"
+        }
+    },
+    "admin":
+    {
+        "landing_page": "",
+        "sidebar":
+        {
+          "users":"Käyttäjät",
+          "statistics":"Tilastot",
+          "info":"Info"
+        },
+        "user_form": 
+        {
+            "firstname":"Etunimi",
+            "lastname": "Sukunimi",
+            "email":"Sähköposti",
+            "new_password":"Uusi salasana",
+            "nickname":"Lempinimi",
+            "bio":"Bio",
+            "role_title":"Käyttäjärooli",
+            "role_supervisor":"Katsoja",
+            "role_basic":"Perus",
+            "role_admin":"Valvoja",
+            "old_avatar":"Vanha kuva",
+            "new_avatar":"Uusi kuva",
+            "submit":"Lähetä"
+        },
+        "list_users":
+        {
+          "row_no":"Nro",
+          "edit_data":"Muokkaa tietoja",
+          "modified": "Muokattu",
+          "created_at":"Luotu",
+          "updated_at":"Päivitetty",
+          "last_login_at":"Kirjautunut"
+          },
+          "admin_delete":
+          {
+            "submit":"Poista",
+            "verification":"Poistetaanko käyttäjä"
+          },
+          "statistics":
+          {
+            "title":"Tilastoja",
+            "charts":
+            {
+                "chart_1_title":"Käyttäjät rooleittain",
+                "chart_2_title":"Ääniä",
+                "chart_3_title":"Koodien äänet",
+                "chart_4_title":"Kommentien äänet"
+            }
+        }
+    }
+}
+  

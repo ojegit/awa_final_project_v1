@@ -1,4 +1,5 @@
 div(id="user-sidebar")
-    a(href="#" id="user-codeblocks") List codeblocks
-    a(href="/user/add_codeblock" id="user-add-codeblock") Add codeblock
-    a(href="#" id="user-user-info") User info
+    a(href="/user/info" id="user-user-info")= t('user.sidebar.user_info', {lng: i18nextLng})
+    a(href="/user/list_codeblocks" id="user-codeblocks")= t('user.sidebar.list_codeblocks', {lng: i18nextLng})
+    a(href="/user/add_codeblock" id="user-add-codeblock")= t('user.sidebar.add_codeblock', {lng: i18nextLng})
+    

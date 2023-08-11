@@ -16,21 +16,6 @@ Rudimentary implementation:
 function initializeMainIndexJS() {
     console.log("Initializing main_index.js");
 
-    const mainContentRef = document.getElementById("main-content");
-
 }
 
-
-function container(user) {
-    var outerDiv = document.createElement("div");
-    var avatarDiv = document.createElement("div");
-    var upVoteDiv = document.createElement("div");
-    var downVoteDiv = document.createElement("div");
-    var upVoteDiv = document.createElement("div");
-    var upVoteDiv = document.createElement("div");
-    var upVoteDiv = document.createElement("button");
-    
-
-    return     
-}
 

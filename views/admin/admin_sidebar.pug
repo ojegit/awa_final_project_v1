@@ -1,4 +1,4 @@
 div(id="admin-sidebar")
-    a(href="/admin/list_users" id="admin-users" class="active") Users
-    a(href="/admin/statistics" id="admin-admin-statistics") Statistics
-    a(href="/admin/info" id="admin-admin-info") Info
+    a(href="/admin/list_users" id="admin-users" class="active")= t('admin.sidebar.users', {lng: i18nextLng})
+    a(href="/admin/statistics" id="admin-admin-statistics")= t('admin.sidebar.statistics', {lng: i18nextLng})
+    //a(href="/admin/info" id="admin-admin-info")= t('admin.sidebar.info', {lng: i18nextLng})

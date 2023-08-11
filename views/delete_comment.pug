@@ -1,0 +1,6 @@
+mixin delete_comment(formIdentifier,address,sendMethod,idName,idValue,submitButtonLabel,i18nextLng)
+    div
+        form(action=address method=sendMethod id=formIdentifier class="delete-comment-form")
+            input(type="hidden" value=idValue name=idName)
+            div
+                input(type="submit" class="delete-comment-form-submit" value=submitButtonLabel form=formIdentifier  onclick="return confirm('"+t('index.delete.verification.comment', {lng: i18nextLng})+"?')")

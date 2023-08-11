@@ -4,27 +4,29 @@ block content
         p Admin list users
         table
             tr 
-                th #
-                th ID
-                th Email
-                th Password
-                th Role
-                th Created at 
-                th Updated at
                 th
-            each user, index in users 
-                tr
-                    td= index 
-                    td= user["id"]
-                    td= user["email"]
-                    td= user["password"]
-                    td= user["role_id"]
-                    td= user["created_at"]
-                    td= user["updated_at"]
+                    p= t('admin.list_users.row_no', {lng: i18nextLng})
+                th
+                    p= t('admin.list_users.edit_data', {lng: i18nextLng})
+                th
+                    p= t('admin.list_users.modified', {lng: i18nextLng})
+            each user, index in users
+                tr(class="admin-user-data")
                     td
                         div
-                            button(class="btn-edit-user" id="btn-edit-user-"+user["id"] onclick="") Edit
+                            p= index
+                    td
                         div
-                            button(class="btn-save-user" id="btn-save-user-"+user["id"] onclick="") Save
-                        div    
-                            button(class="btn-delete-user" id="btn-delete-user-"+user["id"] onclick="") Delete
+                            include user_form.pug
+                            +user_form("form_edit_"+user["_id"],"",user,"","user_id",user["_id"],t('admin.user_form.submit', {lng: i18nextLng}),i18nextLng)
+                        div
+                            include admin_delete.pug
+                            +admin_delete("form_delete_"+user["_id"],"/admin/user/delete","POST","user_id",user["_id"],t('admin.admin_delete.submit', {lng: i18nextLng}),i18nextLng)
+                    td 
+                        div
+                            p= t('admin.list_users.created_at', {lng: i18nextLng})+": "+ user["created_at"].toLocaleString()
+                            p= t('admin.list_users.updated_at', {lng: i18nextLng})+": "+ user["updated_at"].toLocaleString()
+                            p= t('admin.list_users.last_login_at', {lng: i18nextLng})+": "+ user["last_login_at"].toLocaleString()
+
+block script_head 
+    script(src="/resources/js/admin_list_users.js")

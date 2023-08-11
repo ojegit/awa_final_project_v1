@@ -1,143 +1,132 @@
-# Advanced Web Programming: final project 
-Version 1: Frameworkless design /w 
-- client and server NOT separated
-- package.json also doesn't contain separation between these components
+## Project description
 
-## References
-Misc</br>
-[RBAC 1](https://stackoverflow.com/questions/39746718/mongodb-node-js-role-based-access-control-rbac)</br>
-[RBAC 2](https://stackoverflow.com/questions/53880700/how-to-create-mongodb-schema-design-while-dealing-with-single-user-account-and-m)</br>
-[Mongo DB authorization](https://www.mongodb.com/docs/manual/core/authorization/)</br>
-[PassportJS](https://www.developerhandbook.com/blog/passportjs/passport-role-based-authorisation-authentication/)</br>
-https://css-tricks.com/handling-user-permissions-in-javascript/</br>
-https://webdesign.tutsplus.com/pagination-with-vanilla-javascript--cms-41896t</br>
-https://stackoverflow.com/questions/36096805/uploading-multiple-files-with-multer-but-from-different-fields</br>
+[See here](https://docs.google.com/document/d/1zSfVZcnv7FUnu6VxwKLXBPZHqTIdRX1w3d9Yer_mKVU/edit)
 
-Pure JS</br>
-[Pagination](https://www.w3schools.com/howto/howto_css_pagination.asp)</br>
-[Search menu](https://www.w3schools.com/howto/howto_js_search_menu.asp)</br>
-https://stackoverflow.com/questions/28820293/how-does-twitter-implement-its-tweet-box</br>
-[RBAC 1](https://soshace.com/implementing-role-based-access-control-in-a-node-js-application/)</br>
-[RBAC 2](https://stackoverflow.com/questions/39746718/mongodb-node-js-role-based-access-control-rbac?rq=4)</br>
-[JWT as cookie](https://www.sohamkamani.com/nodejs/jwt-authentication/#google_vignette?utm_content=cmp-true)</br>
-[Editable tables](https://www.javatpoint.com/javascript-editable-table)</br>
-https://stackoverflow.com/questions/44657829/css-file-blocked-mime-type-mismatch-x-content-type-options-nosniff</br>
+## Scoring table
 
-Mongoose</br>
-https://masteringjs.io/tutorials/mongoose/create</br>
-https://stackoverflow.com/questions/18551519/error-handling-under-mongoose-save</br>
-https://stackoverflow.com/questions/38893178what-is-the-best-way-to-implement-roles-and-permission-in-express-rest-api</br>
+| Property | Points | Done |
+| -- | -- | :--: |
+| Basic properties | 25 | |
+| Google/Facebook/Twitter login | 2 | |
+| Use of highlight library | 2 | x |
+| Use of pager (> 10 posts) | 2 | |
+| Edit their own comments/posts | 4 | x |
+| Voting posts and comments (one per user) | 3 | x |
+| Search in order to filter messages | 2 | x |
+| User profiles have images next to posts/comments | 3 | x |
+| Username is clickable and shows a profile page with name, register date (picture) and user bio | 2 | x |
+| Last edited timestamp is stored and shown with posts/comments | 2 | x |
+| Translation (> 2 languages) | 2 | x |
+| Admin account capable of edit all posts and delete ALL contents incl comments | 3 | x |
+| Unit tests | 5 | |
+| Accessibility testing/reporting | 3 | | 
+| Statistics: <em>AnyChart</em>  | 2-4 | x |
+| Template engine: <em>PUG</em> | ? | x |
 
-PUG</br>
-[Bootstrap template](https://riemke.dev/blog/bootstrap-with-pug-template/)</br>
-https://stackoverflow.com/questions/53638683/pug-submenu-toggling</br>
-https://www.landingfolio.com/library/home-sidebar/pug</br>
-https://stackoverflow.com/questions/59773656/pug-rendering-templates-of-view-subfolders-in-node-js-express</br>
+Total amount of points to be achieved is 65, the goal for the project is min 50.
 
-Materialize</br>
-[Navbar 1](https://ampersandtutorials.com/materialize-css/navbar-in-materialize-css/)</br>
-[Navbar 2](https://materializecss.com/navbar.html)</br>
-[Navbar 3](https://www.um.es/docencia/barzana/materializecss/navbar.html)</br>
-[Pagination](https://materializecss.com/pagination.html#!)</br>
-[Text inputs](https://materializecss.com/text-inputs.html)</br>
-[Tabs](https://materializecss.com/tabs.html)</br>
-[Table with pagination](https://codepen.io/juan1992/pen/pwdoad)</br>
-https://shapeyourpath.com/materialize/materialize-css-media-tutorial#
+## Documentation
 
-Markdown</br>
-[Basics](https://www.markdownguide.org/basic-syntax/)
+See below and 
+[here](./documentation/)
 
-## Scoring table 
-|<h3>Requirement</h3>|<h3>Points</h3>|<h3>Done</h3>|
-|:---|:---:|:---:|
-|Basic features with well written documentation|25|x|
-|Users can edit their own comments/posts|4||
-|Utilization of a frontside framework|5||
-|Use some highlight library for the code snippets|2||
-|Use of a pager when there is more than 10 posts available|2||
-|Login with Facebook, Google or Twitter accounts (use Passport.js)|2||
-|Admin account with rights to edit all the post and comments and delete content (if a post is removed, all its comments should be removed too)|3||
-|Test software for accessibility; can it be used only with keyboard / voice command? Can screen readers work with your application?|3||
-|Provide a search that can filter out only those messages that have the searched keyword|2||
-|Vote (up or down) posts and comments (only one vote per user)|3||
-|User profiles can have images which are show next to posts/comments|3||
-|User can click username and see user profile page where name, register date, (user picture) and user bio is listed|2||
-|Last edited timestamp is stored and shown with posts/comments|2||
-|Translation of the whole UI in two or more languages|2||
-|Create (unit) tests and automate some testing for example with https://www.cypress.io/ (at least 10 cases have to be implemented)|5||
-|<em><strong>TOTAL</strong></em>|<em><strong>65</strong></em>|<em><strong></strong></em>|
+## Instructions 
 
-## Done
-<h3><strong>Not done:</strong></h3>
+<h3>Intialization</h3>
 
-- responsive UI (mandatory)
-- user group based authenticator middleware
-- use `https://highlightjs.org/` for displaying the code
-- front-end (`client`):
-    - pages:
-        - landing (?)
-        - login
-        - logoff
-        - register
-        - admin dashboard
-        - user settings
-        - code snippets/commentary etc. 
-    - functionality:
-        - search bar 
-        - navbar
-        - comments: add/edit/delete
-        - code snippets: add/edit/delete
-        - up/downvote
-        - user image upload
-        - RBAC/Roles/Responsibilities handling 
-    - UI design: Materialize, React, Template engine, CSS (?)
-- back-end (`server`):
-    - user input verification
-        * login: username(email), password)
-        * register: first name, last name, email, password, nick)
-        * input code blocks
-        * routes (has to do with capturing different range of addresses and case sensitivity; very different approach to the above, but still may be relevant)
-    - choice of authentication method:
-        * header: a) enables server side rendering, b) and usage of template engines and c) client is always known therefore rendering can be directly applied to a specific group 
-        * local storage (most likely jwt): all has to be done client side: a) the code for all groups is always accessible b) template engines can't be used (not that they'd be used anyway if React, Angular, Vue etc. is used)
+Install with <em>NPM</em> `npm install` and run `npm start`. The program will run at port <em>3000</em> and at MongoDB address <em>mongodb://localhost:27017/projektidb1</em>
 
-<h3><strong>Done:</strong></h3>
-- image upload during the register
-- admin account 
-- adding code from logged in user
-- authentication
-- Skeleton of front-end: navigation should be completed
-- Mongoose schemas are mostly done: everything that is to be stored to DB should now have a schema including User, CodeSnippet, Comment, Image, what is NOT yet finished is the Roles that connects to Users! (DONE)
-- Registation input validation completed
-- PUG files
-- Routes
-- UI design
+When the app is started user roles are created (if they don't exist) at `app.js` and old login tokens deleted. First ever user to register will receive <em>admin</em> rights.
 
-## Changes:
+Default port <em>3000</em> and db url <em></em> can be easily changed at `app.js`. JWT token expiration time is set to 20 minutes and can be adjusted at `/routes/api.js`.
 
-<h3>07/30/2023</h3>
+<h3>Registering users</h3>
+When staring the program register from the register menu. User input is checked for correctness. For example, password length should be more than 8 characters, only alphanumerics should be used and at least one capital and lowercase letter should be used. As the email is to be used as username it should be unique and of course contain the @ sign.
 
-- image upload to DB working and tested
-<h3>07/29/2023</h3>
+<h3>Permissions</h3>
+Two basic user roles are applied <em>admin</em> and <em>basic</em>. When the user logs in as admin then an <em>admin</em> menu will appear containing the capabilities of 
+- editing user info and removing them
+- in landing page admin is capable of deleting any code and comment
+- viewing database statistics
 
-- added capability for admin to list all users (TBD: edit features)
-- adding code blocks from an authenticated user works
-- authentication works for user groups, permissions TBA
+For the users the following features are available from their respective menu:
+- editing their information (except delete)
+- adding new codes
+- viewing their own codes
 
-<h3>07/28/2023</h3>
-- added search bar template (no functionality yet!)
-- MongoDB access working (tested with Postman)
-- MongoDB schemas completed
-- user register and input verification working
-- began working on connecting the front end to back end
-- began experimenting with data and db access
-<h3>07/27/2023</h3>
+<h3>Login and logout</h3>
+User is identified based on their unique <em>email</em> and <em>password</em>. Once user logs in a token is created in lthat expires in <em>20 minutes</em>. 
 
-- built rudimentary top navbar for main view, and side bars for admin and user views
-- built pug templates for each page
-- designed front end and routes
-- finished mongoose schemas
-<h3>07/17/2023</h3>
+User can logout by pressing <em>logout</em> button from the top navbar. 
 
-- init
+<h3>Localization</h3>
+Users can switch between English and Finnish language versions from top navbar designated by <em>en</em> and <em>fi</em>, respectfully.
 
+<h3>Adding code blocks</h3>
+Logged in users can add new code from <em>user->add codeblock</em>
+
+<h3>Editing user information</h3>
+Logged in user can edit their information inputted during register from <em>user->add codeblock</em>. Only <em>admin</em> can delete a user, however.
+
+If an admin deletes a user all related codes, comments and votes are deleted in addition to the user profile.
+
+<h3>Adding comments to code blocks</h3>
+Once a code has been added by a user it is possible for logged in users to add comments to existing codeblocks by clicking <em>add comment</em>, addint a title, the comment and submitting it.
+
+<h3>Editing codes and comments</h3>
+Logged in users may edit their own codes and comments by changing the textview show below their own code and pressing <em>Save</em>.
+
+Code or comment can be deleted by pressing <em>Delete code</em> or <em>Delete comment</em>, respectfully. The former deletes all related comments and votes, the latter only the votes.
+
+<h3>Voting codes and comments</h3>
+Logged in users can vote each other's (but not their own) codes or comments. Only single vote per code or comment is allowed and it's not possible.
+
+<h3>Searching codes</h3>
+In order to search the comments the top right corner search bar may be used. Searching does not require login.
+
+<h3> Responsiveness</h3>
+The searchbar in the top navbar will move below the links at 700px width. Sidebar menus at user and admin views will collapse into a navbar also at this width.
+
+# Database 
+ ![db](./documentation/db_model.png)
+
+# UI
+| View | Image |
+| -- | -- |
+| Login, en | ![login_en](./documentation/ui/login_en.png)
+| Register, en | ![register_en](./documentation/ui/register_en.png)
+| Login errors, en | ![login_errors_en](./documentation/ui/login_errors_en.png)
+| Login errors, fi | ![login_errors_en](./documentation/ui/login_errors_fi.png)
+| User card, en | ![login_en](./documentation/ui/user_card_hover_en.png)
+| admin edit user, en | ![fsdf](./documentation/ui/admin_users_en.png)
+| admin statistics, en | ![admin_statistics_em](./documentation/ui/admin_statistics_en.png)
+| user add code, en | ![user_add_code_en](./documentation/ui/add_codeblock_en.png)
+
+
+# Dependencies
+```
+"dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "highlight.js": "^11.8.0",
+    "http-errors": "^2.0.0",
+    "i18next": "^23.4.2",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "i18next-http-backend": "^2.2.1",
+    "i18next-http-middleware": "^3.3.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^2.6.12",
+    "nodemon": "^3.0.1",
+    "pug": "^3.0.2"
+  }
+```

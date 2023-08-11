@@ -1,0 +1,52 @@
+mixin chart_container(chartType,data_xy,title,containerId)
+    div(class="chart-container" id=containerId)
+
+        if chartType == "bar"
+            script.
+                anychart.onDocumentLoad(()=>{
+                    data = [];
+                    var jsonData = !{data_xy};
+
+                    //parse from json to anychart compliant format
+                    for(var key in jsonData) {
+                        data.push({"x":key, "value":""+jsonData[key]});
+                    }
+
+                    var chart = anychart.fromJson({
+                        "chart": {
+                        "title": '#{title}',
+                        "type": "column",
+                        "series":[{"data": data,}],
+                        "container": '#{containerId}'
+                    }
+                    });
+                    chart.draw();
+                });
+
+        else if chartType == "doughnut"
+            script.
+                anychart.onDocumentLoad(()=>{
+                    data = [];
+                    var jsonData = !{data_xy};
+
+                    //parse from json to anychart compliant format
+                    for(var key in jsonData) {
+                        data.push({"x":key, "value": ""+jsonData[key]});
+                    }
+                    // create a pie chart and set the data
+                    chart = anychart.pie(data);
+
+                    /* set the inner radius
+                    (to turn the pie chart into a doughnut chart)*/
+                    chart.innerRadius("30%");
+
+                    // set the container id
+                    chart.container('#{containerId}');
+                    chart.title('#{title}');
+
+                    // initiate drawing the chart
+                    chart.draw();
+                });
+
+
+

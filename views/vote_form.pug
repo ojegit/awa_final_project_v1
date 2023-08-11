@@ -1,0 +1,10 @@
+mixin vote_form(formIdentifier,route,idValue,idName,i18nextLng)
+    div
+        form(action=route, method="POST", id=formIdentifier)
+            input(type="hidden" value=idValue name=idName)
+            div
+                select(type="select" name="vote")
+                    option(value="up")= t('vote_form.up',{lng: i18nextLng})
+                    option(value="down")= t('vote_form.down',{lng: i18nextLng})
+            div
+                input(type="submit" value=t('vote_form.vote',{lng: i18nextLng}) form=formIdentifier)

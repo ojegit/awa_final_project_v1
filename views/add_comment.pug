@@ -1,0 +1,15 @@
+mixin add_comment(codeSnippetId,i18nextLng)
+    //form(action="/user/codeblock/add_comment" method="POST" class="add-comment-form")
+    form(class="add-comment-form" method="" action="" onsubmit="return false;")
+        div
+            label(for="title")= t('add_comment.title', {lng: i18nextLng})+":"
+        div
+            input(type="text" id="user-add-title" name="title")
+        div
+            label(for="commentContent")= t('add_comment.comment', {lng: i18nextLng})+":"
+        div
+            textarea(type="text" rows="5" cols="60" name="commentContent") 
+        div
+            button(type="submit" class="submit-comment-form" id="submit-add-codeblock")= t('add_comment.submit', {lng: i18nextLng})
+            //input(type="submit" class="submit-comment-form")
+    

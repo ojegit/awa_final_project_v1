@@ -1,18 +1,30 @@
 extends user_layout
 block content
     div(id="user-content")
-        h1 Add new codeblock
-        form(action="" id="add-codeblock-form")
+        h1= t('user.title', {lng: i18nextLng})
+        form(id="add-codeblock-form")
             div
-                label(for="title") Title:
+                label(for="title")= t('user.code_title', {lng: i18nextLng})+":"
             div
                 input(type="text" id="user-add-title" name="title")
             div
-                label(for="code") My code:
+                label(for="highlightjs_language")= t('user.choose_language', {lng: i18nextLng})+":"
+            div
+                select(type="select" id="highlightjs_language" name="language")
+                    option(value="")= t('user.automatic_selection', {lng: i18nextLng})
+                    option(value="java") Java
+                    option(value="javascript") JavaScript
+                    option(value="python") Python
+                    option(value="c") C
+                    option(value="cpp") C++
+                    option(value="r") R
+                    option(value="matlab") Matlab
+            div
+                label(for="code")= t('user.my_code', {lng: i18nextLng})+":"
             div
                 textarea(type="text" rows="5" cols="60" name="code" id="user-add-code") 
             div
-                button(type="submit" id="submit-add-codeblock") Submit
+                button(type="submit" id="submit-add-codeblock")= t('user.submit', {lng: i18nextLng})
 
 block script_body
   script(type="text/javascript" src="/resources/js/add_codeblock.js")

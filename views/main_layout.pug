@@ -1,19 +1,33 @@
 doctype html
 html
     head
+        |<meta charset="UTF-8">
+        |<meta name="viewport" content="width=device-width, initial-scale=1.0;">
         div(id="stylesheets")
+            |<!--highlight.js-->
+            |<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+            |<!-- Awesome fonts -->
+            link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+            |<!-- AnyChart -->
+            |<script src="https://cdn.anychart.com/js/latest/anychart-bundle.min.js"></script>
             link(rel="stylesheet" href="/resources/css/main.css")
             
             block stylesheets
 
 
         div(id="script-head")
+            |<!--highlight.js-->
+            |<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+            |<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
+            |<script>hljs.highlightAll();</script>
             script(type="text/javascript" src="/resources/js/main.js")
 
             block script_head
 
         div(id="main-navbar")
             include main_navbar.pug
+            +main_navbar(loggedInUser,loggedInGroup,i18nextLng)
+            
     body
         div(id="main-sidebar")
             block sidebar

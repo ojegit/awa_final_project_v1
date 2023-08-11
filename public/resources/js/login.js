@@ -11,9 +11,10 @@ function initializeLoginJS() {
     console.log("Initializing login.js");
 
     //login form listener
-    document.getElementById("login-form").addEventListener("submit", function(event){
+    document.getElementById("login-form").addEventListener("submit", async function(event){
         event.preventDefault();
-        sendLogin(event);
+        //(await sendLogin(event));
+        (await sendLogin2(event));
     });
 }
 
@@ -28,11 +29,78 @@ function storeToken(token) {
 }
 
 
+
+async function sendLogin2(event) {
+
+    var errSendTarget = document.getElementsByClassName("login-express-validator-errors")[0];
+    errSendTarget.innerHTML = ""; //clear old errors
+
+    //clear previous errors
+    //document.getElementById("login-error").innerHTML = '';
+    
+    //grab data from the form
+    let res = null;
+    const formData = new FormData(event.target);
+    try {
+        res = (await fetch("http://localhost:3000/login", {
+            method: "POST",
+            body: formData
+        }));
+    } catch(err) {
+        console.log("Error post login: "+err);
+    }
+
+    //if the express-validator returned any errors then send them back to the login page
+    if(res.status==(422+0)) {
+        //window.location.href="/login"; //not sending the body!
+
+        //send the errors back
+        /*
+        const evErrors = (await res.json())["errors"];
+        console.log("Send errors back to /login");
+        try {
+            (await fetch("http://localhost:3000/login", {
+                method: "GET",
+                headers: {"errors": JSON.stringify(evErrors)}
+            }))
+        } catch (err) {
+            console.log("Error get login: "+err);
+        }
+        */
+
+        //render directly to the document
+        const evErrors = (await res.json())["errors"];
+
+
+        for(var i=0;i<evErrors.length; i++) {
+            const div = document.createElement("div");
+            const p = document.createElement("p");
+            p.innerHTML = "#"+(i+1)+": " +evErrors[i]["msg"];
+            div.append(p);
+            errSendTarget.append(div);
+        }
+        console.log(evErrors);
+
+    //if no errors occurred then attempt to save the token to localStorage
+    } else {
+        const data = (await res.json());
+        console.log(data);
+        if(data.token) {
+            try {
+                storeToken(data.token);
+                console.log("Stored a token to localStorage as 'auth_token'.");
+            } catch {
+                console.log("Failed to store the token to localStorage.");
+            }
+            window.location.replace('/');
+        }
+    }
+}
 /*
 TBA: async/await 
 */
 //https://dmitripavlutin.com/javascript-fetch-async-await/
-function sendLogin(event) {
+async function sendLogin(event) {
 
     //clear previous errors
     //document.getElementById("login-error").innerHTML = '';
@@ -40,11 +108,11 @@ function sendLogin(event) {
     //grab data from the form
     const formData = new FormData(event.target);
 
-    fetch("http://localhost:3000/login", {
+    await fetch("http://localhost:3000/login", {
         method: "POST",
         body: formData
     })
-        .then((response) => response.json())
+        .then(res => res.json())
         .then((data) => {
             console.log(data);
             if(data.token) {

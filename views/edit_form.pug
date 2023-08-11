@@ -1,0 +1,10 @@
+mixin edit_form(formIdentifier,route,sendMethod,textFieldName,textInitialValue,textAreaFieldName,textAreaInitialValue,idName,idValue,submitButtonLabel)
+    div
+        form(action=route method=sendMethod id=formIdentifier)
+            input(type="hidden" value=idValue name=idName)
+            div
+                input(type="text" name=textFieldName value=textInitialValue)
+            div
+            |<textarea type="text" rows="5" cols="60" name=#{textAreaFieldName}>#{textAreaInitialValue}</textarea> 
+            div
+                input(type="submit" value=submitButtonLabel form=formIdentifier)

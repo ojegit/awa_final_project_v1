@@ -1,12 +1,21 @@
 extends main_layout
 block content
-    h1 Login
+    h1= t('login.title', {lng: i18nextLng})
+    div(class="login-express-validator-errors")
+      if(expressValidatorErrors)
+          - for(var i=0; i < expressValidatorErrors.length; i++) {
+              p= "#"+(i+1)+": "+expressValidatorErrors[i]["msg"]
+          - }
+
     form(action="", id="login-form" onsubmit="return false")
-        label(for="email") Email:
-        input(type="text", id="email", name="email")
-        label(for="password") Password:
-        input(type="password", id="password", name="password")
-        button(type="submit") Login
+        div
+          label(for="email")= t('login.email', {lng: i18nextLng})+":"
+          input(type="text", id="email", name="email")
+        div
+          label(for="password")= t('login.password', {lng: i18nextLng})+":"
+          input(type="password", id="password", name="password")
+        div
+          button(type="submit")= t('login.submit', {lng: i18nextLng})
 
 block script_body
   script(type="text/javascript" src="/resources/js/login.js")

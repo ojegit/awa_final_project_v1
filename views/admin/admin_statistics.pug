@@ -1,4 +1,25 @@
 extends admin_layout
 block content
     div(id="admin-content")
-        p Admin statistics
+        p= t('admin.statistics.title', {lng: i18nextLng})
+            div(class="grid-container")
+                - var total_role_counts = JSON.stringify(statistics["roles_counts"])
+                - var total_vote_counts = JSON.stringify(statistics["votes_counts"])
+                - var codesnippet_vote_counts = JSON.stringify(statistics["codesnippet_votes_counts"])
+                - var comment_vote_counts = JSON.stringify(statistics["comment_votes_counts"])
+
+                div.class(name="grid-item")
+                    include chart_container.pug
+                    +chart_container("bar",total_role_counts,t('admin.statistics.charts.chart_1_title', {lng: i18nextLng}),"chart_1")
+
+                div.class(name="grid-item")
+                    include chart_container.pug
+                    +chart_container("doughnut",total_vote_counts,t('admin.statistics.charts.chart_2_title', {lng: i18nextLng}),"chart_2")
+
+                div.class(name="grid-item")
+                    include chart_container.pug
+                    +chart_container("doughnut",codesnippet_vote_counts,t('admin.statistics.charts.chart_3_title', {lng: i18nextLng}),"chart_3")
+
+                div.class(name="grid-item")
+                    include chart_container.pug
+                    +chart_container("doughnut",comment_vote_counts,t('admin.statistics.charts.chart_4_title', {lng: i18nextLng}),"chart_4")

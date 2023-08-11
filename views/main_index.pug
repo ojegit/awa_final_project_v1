@@ -1,6 +1,15 @@
 extends main_layout
 block content
-  p All code blocks 
+  p= t('main.title', {lng: i18nextLng})
+  if(codeSnippets)
+    table(class="codesnippets")
+      each codeSnippet, index in codeSnippets
+        tr
+          td
+            include codeblock_container.pug
+            +codeblock_container(index,codeSnippet,loggedInGroup,email,i18nextLng)
 
+  div(class="codesnippets-pagination")
+    
 block script_head
   script(type="text/javascript" src="/resources/js/main_index.js")

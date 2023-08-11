@@ -1,0 +1,226 @@
+{
+
+    "welcome": "Welcome",
+    "express_validator": 
+    {
+      "login_messages":
+      {
+        "email":
+        {
+          "length":"Email address must have at least 3 letters",
+          "isemail":"Not a valid email address"
+        },
+        "password": 
+        {
+          "length":"Password must have at least 8 letters",
+          "lowercase":"Password must have at least 1 lower case letter",
+          "uppercase":"Password must have at least 1 upper case letter",
+          "number":"Password must have at least 1 number",
+          "alphanumeric":"Password must have at least 1 alphanumeric character",
+          "strength":"Password is not strong enough"
+        }
+      },
+      "register_messages":
+      {
+        "firstname":
+        {
+          "islength":"First name must have at least 2 letters",
+          "isalpha":"The first name must contain only letters"
+        },
+        "lastname":
+        {
+          "islength":"Last name must have at least 2 letters",
+          "isalpha":"Last name name must contain only letters"
+        },
+        "nickname":
+        {
+          "islength":"Nick name must have at least 3 letters"
+        },
+        "email":
+        {
+          "islength":"Email address must have at least 3 letters",
+          "isemail":"Not a valid email address"
+        },
+        "password":
+        {
+          "islength":"Password must have at least 8 letters",
+          "islowercase":"Password must have at least 1 lower case letter",
+          "isuppercase":"Password must have at least 1 upper case letter",
+          "isnumber":"Password must have at least 1 number",
+          "isalpha":"Password must have at least 1 alphanumeric character",
+          "strength":"Password is not strong enough"
+        }
+      }
+    },
+    "edit_form":{
+        "save":"Save",
+        "send":"Send"
+    },
+    "vote_form":{
+        "up":"Up",
+        "down":"Down",
+        "vote":"Vote"
+    },
+    "add_comment":
+    {
+      "title":"Title",
+      "comment":"Comment",
+      "submit":"Submit"
+    },
+    "main":
+    {
+        "title":"All code blocks",
+        "navbar":
+        {
+            "user":"User",
+            "admin":"Admin",
+            "index": "Index",
+            "login": "Login",
+            "register": "Register",
+            "lngSwitchButtonFi": "fi",
+            "lngSwitchButtonEn": "en",
+            "lngSelect":"Choose language",
+            "search":
+            {
+                "placeholder":"Search codeblocks...",
+                "submit":"Search"
+            }
+        },
+        "codeblockContainer":
+        {
+            "poster":"Poster",
+            "no":"No",
+            "title":"Title",
+            "votes":"Votes",
+            "up":"Up",
+            "down":"Down",
+            "vote":"Vote",
+            "add_comment": "Add Comment",
+            "id": "Id",
+            "delete_codeblock":"Delete code",
+            "delete_comment":"Delete comment"
+          }
+    },
+    "login":{
+        "title":"Login",
+        "email":"Email",
+        "password":"Password",
+        "submit":"Login"
+    },
+    "register":
+    {
+        "title":"Register",
+        "firstname":"First name",
+        "lastname": "Last name",
+        "email":"Email",
+        "password":"Password",
+        "nickname": "Nick name",
+        "avatar_image": "Avatar image",
+        "submit":"Register"
+    },
+    "user_card": {
+        "username":"User name",
+        "nickname":"Nick name",
+        "bio":"Bio",
+        "created_at":"Created at",
+        "last_login_at":"Last login at"
+    },
+    "user":
+    {
+        "list_codeblocks":
+        {
+          "title":"User posted codesnippets"
+        },
+        "landing_page": "",
+        "title": "Add code",
+        "code_title":"Title",
+        "choose_language":"Choose a language",
+        "automatic_selection":"Automatic",
+        "my_code":"My code",
+        "submit":"Submit",
+        "sidebar":
+        {
+            "list_codeblocks":"List codeblocks",
+            "add_codeblock":"Add codeblock",
+            "user_info":"User info"
+        },
+        "user_info":
+        {
+          "title":"User info",
+          "row_no":"No",
+          "edit_data":"Edit data",
+          "modified": "Modified",
+          "created_at":"Created at",
+          "updated_at":"Updated at",
+          "last_login_at":"Last login at"          
+        },
+        "user_form": 
+        {
+            "firstname":"First name",
+            "lastname": "Last name",
+            "email":"Email",
+            "new_password":"New password",
+            "nickname":"Nick name",
+            "bio":"Bio",
+            "role_title":"Access role",
+            "role_supervisor":"Supervisor",
+            "role_basic":"Basic",
+            "role_admin":"Admin",
+            "old_avatar":"Old avatar",
+            "new_avatar":"New avatar image",
+            "submit":"Submit"
+        }
+    },
+    "admin":
+    {
+        "landing_page": "",
+        "sidebar":
+        {
+            "users":"Users",
+            "statistics":"Statistics",
+            "info":"Info"
+        },
+        "user_form": 
+        {
+            "firstname":"First name",
+            "lastname": "Last name",
+            "email":"Email",
+            "new_password":"New password",
+            "nickname":"Nick name",
+            "bio":"Bio",
+            "role_title":"Access role",
+            "role_supervisor":"Supervisor",
+            "role_basic":"Basic",
+            "role_admin":"Admin",
+            "old_avatar":"Old avatar",
+            "new_avatar":"New avatar image",
+            "submit":"Submit"
+        },
+        "list_users":
+        {
+          "row_no":"No",
+          "edit_data":"Edit data",
+          "modified": "Modified",
+          "created_at":"Created at",
+          "updated_at":"Updated at",
+          "last_login_at":"Last login at"          
+        },
+        "admin_delete":
+        {
+          "submit":"Delete",
+          "verification":"Delete user"
+        },
+        "statistics":
+        {
+            "title":"Statistics",
+            "charts":
+            {
+                "chart_1_title":"Users by Role",
+                "chart_2_title":"Vote count",
+                "chart_3_title":"CodeSnippet Votes by Direction",
+                "chart_4_title":"Comment Votes by Direction"
+            }
+        }
+    }
+
+}

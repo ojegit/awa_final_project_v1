@@ -15,8 +15,9 @@ let userSchema = new Schema ({
     nickName:  {type: String, default: '', required:true},
     password: {type: String, default: '', required:true},
     email: {type: String, default: '', required:true},
+    bio: {type: String, default: ''},
     role_id: {type: Schema.Types.ObjectId, default: '', required:true, ref: 'Role'},
-    accessToken: {type: String, default: ''},
+    //accessToken: {type: String, default: ''},
     avatar: {
         name: String,
         encoding: String,
@@ -25,8 +26,9 @@ let userSchema = new Schema ({
         created_at: { type: Date, default: Date.now },
         updated_at: { type: Date, default: Date.now }
     },
+    last_login_at: { type: Date, default: Date.now },
     created_at: { type: Date, default: Date.now },
-    updated_at: { type: Date, default: Date.now }
+    updated_at: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("users", userSchema);

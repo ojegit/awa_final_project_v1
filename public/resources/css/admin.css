@@ -2,6 +2,37 @@
 https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp
 */
 /* The side navigation menu */
+
+.btn-edit-user[toggled='true'] {
+  background-color:lightgreen;  
+}
+
+.btn-edit-user[toggled='false'] {
+  background-color:default;  
+}
+
+/*
+.btn-edit-user:active {
+  background-color:green;  
+}
+*/
+
+/*
+.btn-edit-user:not(active) {
+  background-color:gray;  
+}
+*/
+
+/*
+.btn-save-user:active {
+  color:green; 
+}
+*/
+
+.btn-delete-user:active {
+  color:red; 
+}
+
 #admin-sidebar {
     margin: 0;
     padding: 0;
@@ -36,12 +67,60 @@ https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp
   div#admin-content {
     margin-left: 200px;
     padding: 1px 16px;
-    height: 1000px;
+    /*height: 1000px;*/
   }
 
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-div#admin-content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
+
+/*
+https://www.w3schools.com/css/css_grid.asp
+*/
+
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+/*
+admin-user-data
+*/
+.admin-user-data {
+  background: #ccc;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+/*
+charts
+*/
+.chart-container{
+  /*
+  width: 100%;  
+  height:100%;
+  */
+  width: 300px;
+  height:300px
+}
+
+/*
+responsiveness
+*/
+@media screen and (max-width: 700px) {
+  div#admin-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
   }
+  div#admin-sidebar > a {float: left;}
+  div#admin-content {margin-left: 0;}
+}
