@@ -10,9 +10,9 @@ const accessValidator = (requiredAccess, redirectAddress) => {
         console.log("Validating token:");
 
         const token = req.cookies.token ? req.cookies.token : null;
-        console.log(token);
+        console.log("Token: " +token);
 
-        if(token == null) {
+        if(token === undefined || token === null) {
             //token is null
             console.log("Access denied: token is null");
             if(redirectAddress) {
@@ -86,9 +86,9 @@ const isValidated = (requiredAccess) => {
     return (req,res,next) => { //returns a boolean
         console.log("Validating token:");
         const token = req.cookies.token ? req.cookies.token : null;
-        console.log(token);
+        console.log("Token: " +token);
 
-        if(token == null) return false; //token is null
+        if(token == null || token == undefined ) return false; //token is null
         console.log("Token found");
         jwt.verify(token, process.env.SECRET,  async (err, user) => {
             console.log("Validating access:");

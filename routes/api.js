@@ -1701,7 +1701,7 @@ accessValidator(1,redirectOnUnAuth), //verify access
 
 //admin page
 //landing page
-router.get('/admin/', 
+router.get('/admin', 
 accessValidator(3,redirectOnUnAuth), 
 (req,res,next)=>{
     console.log("GET: /admin");
