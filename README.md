@@ -1,9 +1,7 @@
 
-# Advanced Web Applications: project
-
 ## Project description
 
-See the official project description [here](https://docs.google.com/document/d/1zSfVZcnv7FUnu6VxwKLXBPZHqTIdRX1w3d9Yer_mKVU/edit)
+[See here](https://docs.google.com/document/d/1zSfVZcnv7FUnu6VxwKLXBPZHqTIdRX1w3d9Yer_mKVU/edit)
 
 ## Scoring table
 
@@ -35,7 +33,7 @@ Total amount of points to be achieved is 65, the goal for the project is min 50.
 - Template engine: <em>pug</em>
 - Localization/translation: <em>i18next</em>
 - Code highlighting: <em>highlight.js</em>
-- Routing: <em>express.js</em>
+- Routing: <em>Express.js</em>
 - Testing: <em>cypress</em>
 
 ## Documentation
@@ -119,12 +117,15 @@ The searchbar in the top navbar will move below the links at 700px width. Sideba
 
 <h3>Testing</h3>
 
-Having installed the packages AND started the app with `npm start` run tests with `npx cypress run` while the server is running. 
-The following simple backend tests are included:
+Having installed the packaged AND started the app with `npm start` run tests with `npx cypress run` while the server is running. 
+The following simple tests are included:
 
-  - express-validator test with login and register
-  - routes test
-  - authentication test
+  - server side
+    - express-validator tests
+    - routes tests 
+    - authentication tests
+  - client side
+    - elements exists tests
 
 
 # Database 
@@ -132,32 +133,44 @@ The following simple backend tests are included:
 
 # UI
 
+### Main
+
+|  |  |  |
+| -- | -- | -- |
+| Add comment | ![add_comment_en](./documentation/ui/add_comment_en.png) | ![add_comment_fi](./documentation/ui/add_comment_fi.png) |
+| Delete code | ![delete_code_en](./documentation/ui/delete_code_en.png) | ![delete_code_fi](./documentation/ui/delete_code_fi.png) |
+| Delete comment | ![delete_comment_en](./documentation/ui/delete_comment_en.png) | ![delete_comment_fi](./documentation/ui/delete_comment_fi.png) |
+| Vote | ![vote_en](./documentation/ui/vote_en.png) | ![vote_fi](./documentation/ui/vote_fi.png)  |
 
 ### Register
 
-|  |  |
-| -- | -- |
-| Form | ![register_en](./documentation/ui/register_en.png)
+|  |  |  |
+| -- | -- | -- |
+| Form | ![register_en](./documentation/ui/register_en.png) | ![register_fi](./documentation/ui/register_fi.png)  |
 
 ### Login 
 
 |  |  |  |
 | -- | -- | -- |
-| Form | ![login_en](./documentation/ui/login_en.png) |  |
+| Form | ![login_en](./documentation/ui/login_en.png) | ![login_fi](./documentation/ui/login_fi.png)  |
 | Form errors | ![login_errors_en](./documentation/ui/login_errors_en.png) | ![login_errors_en](./documentation/ui/login_errors_fi.png) |
 
 ### User
 
 |  |  |  |
 | -- | -- | -- |
-| Card | ![login_en](./documentation/ui/user_card_hover_en.png) | |
+| Card | ![user_card_en](./documentation/ui/user_card_hover_en.png) | ![user_card_fi](./documentation/ui/user_card_hover_fi.png) |
+| Add code | ![add_code_en](./documentation/ui/user_add_code_en.png) | ![add_code_fi](./documentation/ui/user_add_code_fi.png) |
+| Added code | ![add_code_en](./documentation/ui/user_added_code_en.png) | ![add_code_fi](./documentation/ui/user_added_code_fi.png) |
+| Info | ![user_info_en](./documentation/ui/user_info_en.png) | ![user_info_fi](./documentation/ui/user_info_fi.png) |
 
 ### Admin
-| | |
-| -- | -- |
-| admin edit user| ![fsdf](./documentation/ui/admin_users_en.png)
-| admin statistics, en | ![admin_statistics_em](./documentation/ui/admin_statistics_en.png)
-| user add code | ![user_add_code_en](./documentation/ui/add_codeblock_en.png)
+
+| | | |
+| -- | -- | -- |
+| edit user | ![edit_user_en](./documentation/ui/admin_users_en.png) | ![edit_user_fi](./documentation/ui/admin_users_fi.png) | 
+| statistics | ![admin_statistics_em](./documentation/ui/admin_statistics_en.png) | ![admin_statistics_fi](./documentation/ui/admin_statistics_fi.png) |
+
 
 
 # Tests
@@ -167,7 +180,6 @@ Tests and videos produced by Cypress are located [here](./cypress/)
 # Known bugs
 
 - users may be able to to vote for themselves when accessing their codes from user view. This doesn't occurr elsewhere e.g main_index.pug or admin view
-
 
 
 # Dependencies

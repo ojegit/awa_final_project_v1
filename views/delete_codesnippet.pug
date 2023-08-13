@@ -3,4 +3,4 @@ mixin delete_codesnippet(formIdentifier,address,sendMethod,idName,idValue,submit
         form(action=address method=sendMethod id=formIdentifier class="delete-codesnippet-form")
             input(type="hidden" value=idValue name=idName)
             div
-                input(type="submit" class="delete-codesnippet-form-submit" value=submitButtonLabel form=formIdentifier  onclick="return confirm('"+t('index.delete.verification.codesnippet', {lng: i18nextLng})+"?')")
+                input(type="submit" class="delete-codesnippet-form-submit" value=submitButtonLabel form=formIdentifier  onclick="return confirm('"+t('delete_form.verification.code', {lng: i18nextLng})+"')")

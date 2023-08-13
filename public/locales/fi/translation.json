@@ -2,6 +2,12 @@
 
 
     "welcome": "Tervetuloa",
+    "delete_form": {
+      "verification":{
+        "code": "Poistetaanko koodi?",
+        "comment": "Poistetaanko kommentti?"
+      }
+    },
     "express_validator": 
     {
       "login_messages":

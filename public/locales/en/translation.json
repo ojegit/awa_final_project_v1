@@ -1,6 +1,12 @@
 {
 
     "welcome": "Welcome",
+    "delete_form": {
+      "verification":{
+        "code": "Delete code?",
+        "comment": "Delete comment?"
+      }
+    },
     "express_validator": 
     {
       "login_messages":
