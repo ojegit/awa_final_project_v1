@@ -137,7 +137,7 @@ The following simple tests are included:
 
 ### Main
 
-|  |  |  |
+|  | en | fi  |
 | -- | -- | -- |
 | Add comment | ![add_comment_en](./documentation/ui/add_comment_en.png) | ![add_comment_fi](./documentation/ui/add_comment_fi.png) |
 | Delete code | ![delete_code_en](./documentation/ui/delete_code_en.png) | ![delete_code_fi](./documentation/ui/delete_code_fi.png) |
@@ -146,20 +146,20 @@ The following simple tests are included:
 
 ### Register
 
-|  |  |  |
+|  | en | fi |
 | -- | -- | -- |
 | Form | ![register_en](./documentation/ui/register_en.png) | ![register_fi](./documentation/ui/register_fi.png)  |
 
 ### Login 
 
-|  |  |  |
+|  | en | fi |
 | -- | -- | -- |
 | Form | ![login_en](./documentation/ui/login_en.png) | ![login_fi](./documentation/ui/login_fi.png)  |
 | Form errors | ![login_errors_en](./documentation/ui/login_errors_en.png) | ![login_errors_en](./documentation/ui/login_errors_fi.png) |
 
 ### User
 
-|  |  |  |
+|  | en | fi |
 | -- | -- | -- |
 | Card | ![user_card_en](./documentation/ui/user_card_hover_en.png) | ![user_card_fi](./documentation/ui/user_card_hover_fi.png) |
 | Add code | ![add_code_en](./documentation/ui/user_add_code_en.png) | ![add_code_fi](./documentation/ui/user_add_code_fi.png) |
@@ -168,7 +168,7 @@ The following simple tests are included:
 
 ### Admin
 
-| | | |
+| | en | fi |
 | -- | -- | -- |
 | edit user | ![edit_user_en](./documentation/ui/admin_users_en.png) | ![edit_user_fi](./documentation/ui/admin_users_fi.png) | 
 | statistics | ![admin_statistics_em](./documentation/ui/admin_statistics_en.png) | ![admin_statistics_fi](./documentation/ui/admin_statistics_fi.png) |
