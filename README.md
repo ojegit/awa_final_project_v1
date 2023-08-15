@@ -12,7 +12,7 @@
 | Basic properties | 25 | |
 | Google/Facebook/Twitter login | 2 | |
 | Use of highlight library | 2 | x |
-| Utilization of a frontside framework | 5 | x |
+| Utilization of a frontside framework | 5 |  |
 | Use of pager (> 10 posts) | 2 | |
 | Edit their own comments/posts | 4 | x |
 | Voting posts and comments (one per user) | 3 | x |
