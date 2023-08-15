@@ -1,5 +1,5 @@
 
-# Advanced Web Programming: project 
+# Advanced Web Applications: project 
 
 ## Project description
 
@@ -12,6 +12,7 @@
 | Basic properties | 25 | |
 | Google/Facebook/Twitter login | 2 | |
 | Use of highlight library | 2 | x |
+| Utilization of a frontside framework | 5 | x |
 | Use of pager (> 10 posts) | 2 | |
 | Edit their own comments/posts | 4 | x |
 | Voting posts and comments (one per user) | 3 | x |
@@ -24,9 +25,9 @@
 | Unit tests | 5 | x |
 | Accessibility testing/reporting | 3 | | 
 | Statistics: <em>AnyChart</em>  | 2-4 | x |
-| Template engine: <em>PUG</em> | ? | x |
+| Template engine: <em>PUG</em> | 2-4 | x |
 
-Total amount of points to be achieved is 65, the goal for the project is min 50.
+Goal for the project is min 50 points.
 
 ## Tech
 - Database: <em>mongoose</em>
