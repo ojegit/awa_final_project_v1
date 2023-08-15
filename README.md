@@ -24,8 +24,8 @@
 | Admin account capable of edit all posts and delete ALL contents incl comments | 3 | x |
 | Unit tests | 5 | x |
 | Accessibility testing/reporting | 3 | | 
-| Statistics: <em>AnyChart</em>  | 2-4 | x |
-| Template engine: <em>PUG</em> | 2-4 | x |
+| NEW: Statistics: <em>AnyChart</em>  | 2-5 (?) | x |
+| NEW: Template engine: <em>PUG</em> | 2-5 (?) | x |
 
 Goal for the project is min 50 points.
 
