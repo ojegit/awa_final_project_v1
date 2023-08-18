@@ -1,33 +1,5 @@
 
-# Advanced Web Applications: project 
-
-## Project description
-
-[See here](https://docs.google.com/document/d/1zSfVZcnv7FUnu6VxwKLXBPZHqTIdRX1w3d9Yer_mKVU/edit)
-
-## Scoring table
-
-| Property | Points | Done |
-| -- | -- | :--: |
-| Basic properties | 25 | |
-| Google/Facebook/Twitter login | 2 | |
-| Use of highlight library | 2 | x |
-| Utilization of a frontside framework | 5 |  |
-| Use of pager (> 10 posts) | 2 | |
-| Edit their own comments/posts | 4 | x |
-| Voting posts and comments (one per user) | 3 | x |
-| Search in order to filter messages | 2 | x |
-| User profiles have images next to posts/comments | 3 | x |
-| Username is clickable and shows a profile page with name, register date (picture) and user bio | 2 | x |
-| Last edited timestamp is stored and shown with posts/comments | 2 | x |
-| Translation (> 2 languages) | 2 | x |
-| Admin account capable of edit all posts and delete ALL contents incl comments | 3 | x |
-| Unit tests | 5 | x |
-| Accessibility testing/reporting | 3 | | 
-| NEW: Statistics: <em>AnyChart</em>  | 2-5 (?) | x |
-| NEW: Template engine: <em>PUG</em> | 2-5 (?) | x |
-
-Goal for the project is min 50 points.
+# Code Posting App 
 
 ## Tech
 - Database: <em>mongoose</em>
