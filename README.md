@@ -1,5 +1,5 @@
 
-# Code Posting App 
+# Code Posting Web App
 
 ## Tech
 - Database: <em>mongoose</em>
